@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import {Link as LinkRouter} from 'react-router-dom'
+import PersonIcon from '@mui/icons-material/Person';
 import "./nav.css"
 
 const pages = ['Home', 'Cities'];
@@ -129,8 +130,9 @@ const ResponsiveAppBar = () => {
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Sergio Robledo" src="/static/images/avatar/1.jpg" />
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, color: 'white'  }}>
+                {/* <Avatar alt="Sergio Robledo" src="/static/images/avatar/1.jpg" /> */}
+                <PersonIcon/>
               </IconButton>
             </Tooltip>
             <Menu

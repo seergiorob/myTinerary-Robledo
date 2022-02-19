@@ -6,6 +6,9 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Cities from './components/Cities/cities'
 import Footer from './components/footer/footer'
 import Comments from './components/reviews/comments'
+import Us from './components/us/us'
+import Cta from './components/cta/cta'
+
 
 function App() {
   return (
@@ -13,8 +16,11 @@ function App() {
       <BrowserRouter> 
       <ResponsiveAppBar/>
       <Hero/>
+      <Us/>
+      <Cta/>
       <Comments/>
       <Routes>
+      
       <Route path="/Home" element={<Gallery/>}/>
       
       <Route path="/Cities" element={<Cities/>}/>

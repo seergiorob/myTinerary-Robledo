@@ -11,7 +11,7 @@ console.log(commentsArray);
 function Comments() {
     return (
         <>
-        <h2>What people are saying..</h2>
+        <h2 className="h2title">What people are saying..</h2>
         <div className="father">
             
             {commentsArray.map(user => 
