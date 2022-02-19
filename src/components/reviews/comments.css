@@ -1,31 +1,55 @@
+h2{
+    width:100%;
+    font-size: 1.5rem;
+    text-align:center;
+    margin: 5%;
+}
 .father{
     width: 100vw;
     margin-top: 2%;
     margin-bottom: 2%;
     display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
     justify-content: center;
     align-items: center;
     }
 
+.divimg{
+    /* margin-top: 15%;
+    
+    border-radius: 360px;
+    background-color: blue;
+    height: 140px;
+    width: 140px; */
+}
+
 .cardbody{
+
     height: 400px;
     width: 300px;
     border-radius: 16px;
-    background-color: rgb(194, 194, 194);
+    background-color: rgb(235, 235, 235);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.091);
 }
 
 .profileimg{
-    height: 40px;
+    margin-top: 15%;
+    border: 3px solid rgb(255, 255, 255);
     border-radius: 360px;
+    height: 140px;
+    width: 140px;
 }
 
 .textarea{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    margin-bottom: 15%;
+    padding: 4%;
 }

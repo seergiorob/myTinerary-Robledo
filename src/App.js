@@ -13,7 +13,7 @@ function App() {
       <BrowserRouter> 
       <ResponsiveAppBar/>
       <Hero/>
-      
+      <Comments/>
       <Routes>
       <Route path="/Home" element={<Gallery/>}/>
       
