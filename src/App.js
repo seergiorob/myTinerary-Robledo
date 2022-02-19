@@ -1,13 +1,15 @@
 import React from 'react';
-import ResponsiveAppBar from './components/nav/nav.js'
-import Gallery from './components/gallery/gallery'
-import Hero from './components/hero/hero.jsx'
+import ResponsiveAppBar from './components/nav/Nav'
+// import Gallery from './components/gallery/Gallery'
+// import Hero from './components/hero/Hero.jsx'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import Cities from './components/Cities/cities'
-import Footer from './components/footer/footer'
-import Comments from './components/reviews/comments'
-import Us from './components/us/us'
-import Cta from './components/cta/cta'
+// import Cities from './components/Cities/Cities'
+import Footer from './components/footer/Footer'
+// import Comments from './components/reviews/Comments'
+// import Us from './components/us/Us'
+// import Cta from './components/cta/Cta'
+import Home from './Pages/Home'
+import Cities from './Pages/Cities'
 
 
 function App() {
@@ -15,15 +17,16 @@ function App() {
     <div>
       <BrowserRouter> 
       <ResponsiveAppBar/>
-      <Hero/>
+      {/* <Hero/>
       <Us/>
       <Cta/>
-      <Comments/>
+      <Comments/> */}
       <Routes>
-      
-      <Route path="/Home" element={<Gallery/>}/>
-      
+
+      <Route path="/" element={<Home/>}/>
+      <Route path="/Home" element={<Home/>}/>
       <Route path="/Cities" element={<Cities/>}/>
+
       </Routes>
       <Footer/>  
       </BrowserRouter>
