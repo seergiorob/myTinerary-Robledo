@@ -1,0 +1,11 @@
+.nav{
+    text-decoration: none;
+    color: white;
+    margin: 3px 12px 3px 12px;
+}
+
+.navMob{
+    text-decoration: none;
+    color: black;
+    margin: 3px 12px 3px 12px;
+}

@@ -1,0 +1,23 @@
+.boxcont{
+    background-color: rgb(191, 191, 191);
+    
+}
+
+.tittle{
+    font-size: 1.5rem;
+}
+
+.quicklinks{
+    
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.links{
+    text-decoration: none;
+    color: black;
+    margin: 8px;
+
+}
+

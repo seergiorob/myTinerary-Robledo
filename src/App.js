@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import ResponsiveAppBar from './components/nav/nav.js'
+import Gallery from './components/gallery/gallery'
+import Hero from './components/hero/hero.jsx'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import Cities from './components/Cities/cities'
+import Footer from './components/footer/footer'
+import Comments from './components/reviews/comments'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter> 
+      <ResponsiveAppBar/>
+      <Hero/>
+      
+      <Routes>
+      <Route path="/Home" element={<Gallery/>}/>
+      
+      <Route path="/Cities" element={<Cities/>}/>
+      </Routes>
+      <Footer/>  
+      </BrowserRouter>
+      
     </div>
+    
   );
 }
 
 export default App;
+
+
