@@ -8,6 +8,9 @@ import ConnectWithoutContactOutlinedIcon from '@mui/icons-material/ConnectWithou
 function Us() {
     return (
         <div className="general">
+            <h2 className="tittleh2us">Why people choose us?</h2>
+
+            <div className="centerdiv">
             <div className="item">
                 <RecordVoiceOverOutlinedIcon className="icon"/>
                 <h3>Guidance</h3>
@@ -21,12 +24,13 @@ function Us() {
             <div className="item">
                 <SpaOutlinedIcon className="icon"/>
                 <h3>Peace of Mind</h3>
-                <p>Reassurance to book with confidence.</p>
+                <p>Book with confidence.</p>
             </div>
             <div className="item">
                 <ConnectWithoutContactOutlinedIcon className="icon"/>
                 <h3>Service</h3>
                 <p>Beside you every step of the way.</p>
+            </div>
             </div>
 
 

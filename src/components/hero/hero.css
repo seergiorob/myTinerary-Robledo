@@ -1,6 +1,7 @@
 .hero{
     /* background-image: url(../../../public/img/bridge-4636745_1920.jpg); */
-    background: linear-gradient(160deg, #e10f244a 0%, #e8900d3a 100%), url(../../../public/img/lighthouse.jpg) no-repeat center center;
+    background: linear-gradient(160deg, #0000004a 0%, #5731ae2a 100%),  url(../../../public/img/herotest.jpg) no-repeat center bottom;
+    /* background: linear-gradient(160deg, #0000004a 0%, #5731ae2a 100%),  url(../../../public/img/testhero2.jpg) no-repeat center center; */
     height: 100vh;
     width: 100%;
     display: flex;
@@ -9,6 +10,8 @@
     margin-top: -70px;
     z-index: -10;
 }
+
+/* linear-gradient(160deg, #e10f244a 0%, #e8900d3a 100%),  */
 
 @media (max-width: 480px) {
 h1 {
@@ -22,7 +25,7 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%); */
 
 h1{
     color: white;
-    text-shadow: 2px 2px 2px black;
+    text-shadow: 1px 1px 1px black;
     font-size: 40px;
     text-align: center;
     margin: 10px;

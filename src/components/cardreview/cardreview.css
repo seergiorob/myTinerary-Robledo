@@ -1,0 +1,40 @@
+.cardbody1{
+    margin: 4%;
+    height: 450px;
+    width: 290px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items:center;
+    position: relative;
+    border-radius: 16px;
+    /* box-shadow: 1px 1px 10px black; */
+}
+
+.cardtext {
+    height: 200px;
+    margin: 4%;
+}
+
+.cardtext>h3{
+    margin-bottom: 2%;
+}
+
+.cardtext>p{
+    margin-top: 0;
+}
+
+.imgcard1{
+    border-radius:16px;
+    height: 250px;
+    width: 290px;
+}
+
+.imgcard2{
+    border-radius: 360px;
+    height: 70px;
+    position: absolute;
+    top: 45%;
+    right: 10%;
+}

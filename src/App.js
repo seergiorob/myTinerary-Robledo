@@ -10,6 +10,7 @@ import Footer from './components/footer/Footer'
 // import Cta from './components/cta/Cta'
 import Home from './Pages/Home'
 import Cities from './Pages/Cities'
+import Cardreview from './components/cardreview/cardreview';
 
 
 function App() {
@@ -26,9 +27,10 @@ function App() {
       <Route path="/" element={<Home/>}/>
       <Route path="/Home" element={<Home/>}/>
       <Route path="/Cities" element={<Cities/>}/>
-
+      
       </Routes>
-      <Footer/>  
+      <Footer/>
+      <Cardreview/>  
       </BrowserRouter>
       
     </div>
