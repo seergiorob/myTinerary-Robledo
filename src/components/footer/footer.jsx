@@ -10,7 +10,7 @@ function Footer() {
     return (
         <footer className="footer">
 
-            <Box className="boxcont" color="black" px={{ xs: 3, sm: 10}} py={{ xs: 5, sm: 10}}>
+            <Box className="boxcont" color="white" px={{ xs: 3, sm: 10}} py={{ xs: 5, sm: 10}}>
                 <Container maxwidth="lg">
                     <Grid container spacing={1}>
                       <Grid item xs={12} sm={6}>

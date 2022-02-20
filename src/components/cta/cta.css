@@ -2,10 +2,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background:  url(../../../public/img/banner.jpg) no-repeat center center;
+    /* background:  url(../../../public/img/banner.jpg) no-repeat center center; */
+    /* background-color: red; */
     position: relative;
-    height: 60vh;
-    width: 70%;
+    height: 80vh;
+    width: 100%;
     border-radius: 16px;
     margin: auto;
 }
@@ -22,8 +23,23 @@
     align-items: flex-start;
 } */
 
+.imgbg{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
 
-.imgbg>h3{
+.girlcta{
+    width: 40%;
+}
+
+.textdivcta{
+    width: 40%;
+    display: block;
+}
+
+.textdivcta>h3{
     font-size: 2rem;
     color: black;
     margin: 3%;
@@ -33,13 +49,13 @@
     text-align: left;
 }
 
-.imgbg>p{
+.textdivcta>p{
     margin-top: 0;
     margin-left: 4%;
     margin-bottom: 2%;
     font-size:1.2rem;
     color: black;
-    width: 40%;
+    width: 100%;
     text-align: left;
     line-height: 30px;
     /* text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.803); */
@@ -52,6 +68,7 @@
     color: black; */
     text-decoration: none;
     color: white;
+    line-height: 2rem;
 }
 
 .btncta{
@@ -65,5 +82,22 @@
     border: none;
     box-shadow: none;
 }
+
+
+@media (max-width: 800px) {
+    .textdivcta{
+        width:100%;
+    }
+    .girlcta{
+        width: 100%;
+    }
+    .textdivcta>h3{
+        font-size: 1.5rem !important;
+    }
+    .btncta{
+        margin-bottom: 3%;
+    }
+}
+
 
 

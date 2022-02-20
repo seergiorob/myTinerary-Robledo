@@ -2,9 +2,8 @@ import React from 'react'
 import Hero from '../components/hero/Hero'
 import Us from '../components/us/Us'
 import Cta from '../components/cta/Cta'
-import Comments from '../components/reviews/Comments'
 import Gallery from '../components/gallery/Gallery'
-
+import Cardreview from '../components/cardreview/Cardreview'
 
 function Home() {
     return (
@@ -12,7 +11,7 @@ function Home() {
             <Hero/>
             <Us/>
             <Cta/>
-            <Comments/>
+            <Cardreview/>
             <Gallery/>
         </div>
     )

@@ -10,7 +10,7 @@ import Footer from './components/footer/Footer'
 // import Cta from './components/cta/Cta'
 import Home from './Pages/Home'
 import Cities from './Pages/Cities'
-import Cardreview from './components/cardreview/cardreview';
+// import Cardreview from './components/cardreview/Cardreview';
 
 
 function App() {
@@ -29,8 +29,7 @@ function App() {
       <Route path="/Cities" element={<Cities/>}/>
       
       </Routes>
-      <Footer/>
-      <Cardreview/>  
+      <Footer/> 
       </BrowserRouter>
       
     </div>

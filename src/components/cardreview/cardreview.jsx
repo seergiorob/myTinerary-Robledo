@@ -1,17 +1,31 @@
 import React from 'react'
 import './cardreview.css'
+import StarIcon from '@mui/icons-material/Star';
+import comments from '../datoscoment'
+
+let commentsArray = []
+commentsArray.push(comments[0],comments[1],comments[2]  )
 
 function Cardreview() {
     return (
-        <div>
+
+        <div className="generalcard">
+
+        <h2 className="h2titlecard">What people are saying..</h2>
+        <div className="cardwrapper1">
+            {commentsArray.map(user => 
+
             <div className="cardbody1">
-                <img className="imgcard1" src={process.env.PUBLIC_URL+ `/img/sydney.jpg`}/>
-                <img className="imgcard2" src={process.env.PUBLIC_URL+ `/img/profile/1.jpg`}/>
+                <img className="imgcard1" src={process.env.PUBLIC_URL+ `/img/${user.imgcity}`}/>
+                <img className="imgcard2" src={process.env.PUBLIC_URL+ `/img/profile/${user.img}`}/>
                 <div className="cardtext">
-                <h3>Berline</h3>
-                <p>Visited Berlin in November. I enjoyed it so much that I would definitely visit it again. These energetic people showed professionalism and were helpful and attending to our needs and requests in no time.</p>
+                <h3>{user.name}</h3>
+                <div className="stars">{user.rate}<StarIcon/> </div>
+                <p className="reviewcardp">"{user.comment}"</p>
                 </div>
             </div>
+            )}
+        </div>
         </div>
     )
 }
