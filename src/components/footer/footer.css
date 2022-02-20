@@ -5,6 +5,7 @@
 
 .tittle{
     font-size: 1.5rem;
+    margin-bottom: 10px;
 }
 
 .quicklinks{
@@ -20,4 +21,16 @@
     margin: 8px;
 
 }
+
+.socialbrands{
+    display: flex;
+    align-items: center;
+    /* padding: 6px; */
+    margin: 6px;
+    text-decoration: none;
+    padding: 4px;
+    color: rgb(255, 255, 255);
+    z-index: 3;
+}
+
 

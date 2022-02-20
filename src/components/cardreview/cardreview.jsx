@@ -2,6 +2,7 @@ import React from 'react'
 import './cardreview.css'
 import StarIcon from '@mui/icons-material/Star';
 import comments from '../datoscoment'
+import InstagramIcon from '@mui/icons-material/Instagram';
 
 let commentsArray = []
 commentsArray.push(comments[0],comments[1],comments[2]  )
@@ -18,6 +19,7 @@ function Cardreview() {
             <div className="cardbody1">
                 <img className="imgcard1" src={process.env.PUBLIC_URL+ `/img/${user.imgcity}`}/>
                 <img className="imgcard2" src={process.env.PUBLIC_URL+ `/img/profile/${user.img}`}/>
+                <a className="iglogocard" href="https://www.instagram.com/mindhub_la/?hl=es"><InstagramIcon/></a>
                 <div className="cardtext">
                 <h3>{user.name}</h3>
                 <div className="stars">{user.rate}<StarIcon/> </div>

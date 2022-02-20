@@ -14,6 +14,17 @@
     margin: none;
 }
 
+.iglogocard{
+    margin-left: 100px;
+    padding: 4px;
+    color: white;
+    background-color: black;
+    border-radius: 360px;
+    text-align: center;
+    line-height:100%;
+    z-index: 3;
+}
+
 .cardbody1{
     margin: 2%;
     height: 450px;
