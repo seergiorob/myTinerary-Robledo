@@ -31,12 +31,19 @@
 }
 
 .girlcta{
-    width: 40%;
+    width: 95%;
 }
 
 .textdivcta{
-    width: 40%;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 90%;
+    height: 80%;
+    margin-left: 4%;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .textdivcta>h3{
