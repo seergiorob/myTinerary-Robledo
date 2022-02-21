@@ -5,9 +5,16 @@ import comments from '../datoscoment'
 import InstagramIcon from '@mui/icons-material/Instagram';
 
 let commentsArray = []
-commentsArray.push(comments[0],comments[1],comments[2]  )
+
+
+comments.sort((a, b) => Math.random() - 0.5)
+
+for(let i = 0; i < 3; i++){
+    commentsArray.push(comments[i])
+}
 
 function Cardreview() {
+    
     return (
 
         <div className="generalcard">
@@ -27,6 +34,8 @@ function Cardreview() {
                 </div>
             </div>
             )}
+            
+
         </div>
         </div>
     )
