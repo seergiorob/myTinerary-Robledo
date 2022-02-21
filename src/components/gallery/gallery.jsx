@@ -51,6 +51,7 @@ export default function Gallery() {
             
             <div className="divslider"> 
               <img src={process.env.PUBLIC_URL+ `/img/${foto.img}`}/>
+              {/* <img src={foto.img}/> */}
               <p> {foto.name} </p>
             </div>
 
