@@ -6,7 +6,7 @@ import Grid from '@mui/material/Grid'
 function Cta() {
     return (
         <div className="ctadiv">
-            <Grid container spacing={2}> 
+            <Grid container sx={{my:5}} spacing={2}> 
             {/* <div className="imgbg"> */}
             <Grid item xs={12} sm={12} md={6}> 
             <div className="textdivcta">
@@ -19,7 +19,7 @@ function Cta() {
             
             </div>
             </Grid>
-            <Grid item xs={12} sm={6}> 
+            <Grid item xs={12} sm={6} md={6}> 
             <img className="girlcta" src={process.env.PUBLIC_URL+ `/img/banner3.jpg`}/>
             </Grid>
             {/* </div> */}

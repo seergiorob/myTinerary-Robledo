@@ -1,0 +1,61 @@
+.containerContact{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.tittleContact>h3{
+    font-size: 2rem;
+    
+}
+
+.tittleContact>p{
+    width: 60%;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.tittleContact{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+}
+
+p>span{
+    font-weight: bold;
+    font-style: italic;
+}
+
+.iconsContact{
+    width: 100%;
+    margin: auto;
+    margin-top: 1%;
+    margin-bottom: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.griditemscontact{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.griditemscontact>p{
+    font-size: 1rem;
+}
+
+.griditemscontact>h4{
+    margin-bottom: 0;
+    font-size: 1.3rem;
+}
+
+
+.iconcontact{
+    font-size:2.5rem;
+}

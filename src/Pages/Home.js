@@ -4,6 +4,7 @@ import Us from '../components/us/Us'
 import Cta from '../components/cta/Cta'
 import Gallery from '../components/gallery/Gallery'
 import Cardreview from '../components/cardreview/Cardreview'
+import Contact from '../components/contact/Contact'
 
 function Home() {
     return (
@@ -12,6 +13,7 @@ function Home() {
             <Us/>
             <Cta/>
             <Cardreview/>
+            <Contact/>
             <Gallery/>
         </div>
     )
