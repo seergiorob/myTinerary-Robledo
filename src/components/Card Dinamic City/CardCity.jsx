@@ -50,9 +50,7 @@ function CardCity() {
                 </div>
               </div>
               <p className="reviewcardCity">
-                "Berlin is the capital and chief urban center of Germany. Berlin
-                was the capital of Prussia and then, from 1871, of a unified
-                Germany."
+                "{city.description}"
               </p>
               <div className="btnCardCities">
               <Button variant="outlined">More information</Button>
