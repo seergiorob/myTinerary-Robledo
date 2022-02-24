@@ -1,0 +1,38 @@
+.wrapperDetails{
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
+
+.heroDetails{
+    /* background: linear-gradient(160deg, #0000004a 0%, #5731ae2a 100%),  url(../../../public/img/johannesburg.jpg) no-repeat center bottom; */
+    /* background-size: cover; */
+    object-fit: cover;
+    object-position: 10% 50%;
+    height: 60vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -70px;
+    z-index: -10;
+}
+
+@media (max-width: 480px) {
+    .h1tittleheroDetails {
+        font-size: 1.5rem !important;
+    }
+    }
+
+.h1tittleheroDetails{
+    background-color: black;
+    line-height: 40px;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    font-size: 40px;
+    text-align: center;
+    margin: 0px;
+    width: 100%;
+}
