@@ -12,10 +12,10 @@
 }
 
 @media (max-width: 480px) {
-h2 {
+.tittleh2 {
     font-size: 1.5rem !important;
 }
-h3{
+.tittleh3{
     font-size: 0.9rem !important;
 }
 }

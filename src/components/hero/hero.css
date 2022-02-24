@@ -14,7 +14,7 @@
 /* linear-gradient(160deg, #e10f244a 0%, #e8900d3a 100%),  */
 
 @media (max-width: 480px) {
-h1 {
+.h1tittleherohome {
     font-size: 1.5rem !important;
 }
 }
@@ -23,7 +23,7 @@ h1 {
 background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%); */
 
 
-h1{
+.h1tittleherohome{
     color: white;
     text-shadow: 1px 1px 1px black;
     font-size: 40px;
