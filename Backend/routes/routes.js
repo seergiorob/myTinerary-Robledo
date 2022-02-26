@@ -9,7 +9,7 @@ Router.route('/allcities')
 .post(cargarCiudad)//nuevo y en linea 5 tambien lo de cargarCIudad
 
 Router.route('./allcities/:id')
-.delete(borrarCiudad)
+// .delete(borrarCiudad)
 .put(modificarCiudad)
 
 module.exports = Router

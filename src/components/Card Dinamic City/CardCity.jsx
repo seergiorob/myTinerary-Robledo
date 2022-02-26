@@ -1,16 +1,50 @@
-import React from 'react'
+import React, { useEffect, useState} from 'react'
 import 'materialize-css/dist/css/materialize.min.css'
 import './CardCity.css'
 import PaidIcon from '@mui/icons-material/Paid'
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt'
 import FlagIcon from '@mui/icons-material/Flag'
 import TimerIcon from '@mui/icons-material/Timer'
-import imagenes from '../datos'
+// import imagenes from '../datos'
 import TextField from '@mui/material/TextField'
-import useState from 'react'
+// import useState from 'react'
 import { Button } from '@mui/material'
+import axios from 'axios'
 
 function CardCity() {
+
+  const [data, setData] = useState()
+  const [search, setSearch] = useState()
+
+console.log(data)
+  useEffect(()=> { 
+    axios.get(`http://localhost:4000/api/allcities`)
+    .then(response=> setData(response.data.response.ciudades))
+
+    console.log(data)
+  
+  },[])
+
+  const handleChange=e=>{
+    setSearch(e.target.value);
+    filter(e.target.value)
+  }
+
+  const filter = (search)=>{
+    let searchResult = data.filter((data) => {
+      if(data.name.toLowerCase().startsWith(search.toLowerCase().trim()))
+      {return data;
+        
+      }
+    
+    }
+  );
+  setData(searchResult)
+  console.log(data)
+}
+  // data.filter(data => data.name.toLowerCase().startsWith(val.toLowerCase()))
+
+
   return (
     <div className="cardwrapperCity">
       <div className="positionCard">
@@ -20,15 +54,16 @@ function CardCity() {
           id="outlined-basic"
           label="Search Cities"
           variant="outlined"
-          value=""
+          value={search}
+          onChange={handleChange}
         />
 
         <div className="positionCardCards">
-          {imagenes.map((city) => (
+          {data?.map((city) => (
             <div className="cardbodyCity">
               <img
                 className="imgcardBody"
-                src={process.env.PUBLIC_URL + `/img/${city.img}`}
+                src={process.env.PUBLIC_URL + `/img/${city.image}`}
               />
 
               <div className="cardtextCity">
