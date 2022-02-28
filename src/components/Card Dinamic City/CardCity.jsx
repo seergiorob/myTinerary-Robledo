@@ -14,28 +14,26 @@ import {Link as LinkRouter} from "react-router-dom"
 
 function CardCity() {
 
-  const [data, setData] = useState([])
+  const [data, setData] = useState()
   const [search, setSearch] = useState('')
   const [dataSearcheada, setDataSearcheada] = useState()
-  const [test, setTest] = useState([])
 
   
 
-// console.log(data)
   useEffect(()=> { 
     axios.get(`http://localhost:4000/api/allcities`)
-    .then(response=> setData(response.data.response.ciudades))
+    .then((response)=>{ 
+      setData(response.data.response.ciudades)
+      setDataSearcheada(response.data.response.ciudades)
+    }
+    )
 
-    // console.log(data)
-  
   },[])
 
   const handleChange=e=>{
     setSearch(e.target.value);
     filter(e.target.value)
   }
-
-
 
   const filter = (search)=>{
     
@@ -46,27 +44,9 @@ function CardCity() {
     
     }
   );
-  // setData(searchResult)
   setDataSearcheada(searchResult)
-  
-  
-  
-  
-  
-}
-console.log(test)
-const fun = () => {
-if(dataSearcheada.length = undefined){
-  setDataSearcheada(data)
-}
-}
 
-console.log(test)
-console.log(dataSearcheada)
-  // data.filter(data => data.name.toLowerCase().startsWith(val.toLowerCase()))
-  
-
-  
+}
 
   return (
     <div className="cardwrapperCity">
