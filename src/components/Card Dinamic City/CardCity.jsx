@@ -17,7 +17,7 @@ function CardCity() {
   const [data, setData] = useState()
   const [search, setSearch] = useState('')
   const [dataSearcheada, setDataSearcheada] = useState()
-
+  const [isLoaded, setIsLoaded] = useState(false)
   
 
   useEffect(()=> { 
@@ -25,6 +25,7 @@ function CardCity() {
     .then((response)=>{ 
       setData(response.data.response.ciudades)
       setDataSearcheada(response.data.response.ciudades)
+      setIsLoaded(true)
     }
     )
 
@@ -47,7 +48,7 @@ function CardCity() {
   setDataSearcheada(searchResult)
 
 }
-
+console.log(dataSearcheada)
   return (
     <div className="cardwrapperCity">
       <div className="positionCard">
@@ -64,6 +65,8 @@ function CardCity() {
         <div className="positionCardCards">
           
           {
+          !isLoaded ? (<h2>Loading..</h2>) :
+          dataSearcheada.length === 0 ? (<h2>No se encontró una poronga</h2>) :
           dataSearcheada?.map((city) => (
             <div className="cardbodyCity">
               <img

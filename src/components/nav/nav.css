@@ -12,5 +12,6 @@
 
 .hola{
     background-color: rgba(0, 0, 0, 0.262) !important;
+    border-radius: 8px;
 }
 
