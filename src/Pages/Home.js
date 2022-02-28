@@ -10,11 +10,13 @@ function Home() {
     return (
         <div>
             <Hero/>
-            <Us/>
             <Cta/>
-            <Cardreview/>
-            <Contact/>
+            <Us/>
+            
             <Gallery/>
+            
+            <Contact/>
+            <Cardreview/>
         </div>
     )
 }

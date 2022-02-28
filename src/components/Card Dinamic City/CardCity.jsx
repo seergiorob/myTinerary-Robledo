@@ -10,18 +10,23 @@ import TextField from '@mui/material/TextField'
 // import useState from 'react'
 import { Button } from '@mui/material'
 import axios from 'axios'
+import {Link as LinkRouter} from "react-router-dom"
 
 function CardCity() {
 
-  const [data, setData] = useState()
-  const [search, setSearch] = useState()
+  const [data, setData] = useState([])
+  const [search, setSearch] = useState('')
+  const [dataSearcheada, setDataSearcheada] = useState()
+  const [test, setTest] = useState([])
 
-console.log(data)
+  
+
+// console.log(data)
   useEffect(()=> { 
     axios.get(`http://localhost:4000/api/allcities`)
     .then(response=> setData(response.data.response.ciudades))
 
-    console.log(data)
+    // console.log(data)
   
   },[])
 
@@ -30,20 +35,38 @@ console.log(data)
     filter(e.target.value)
   }
 
+
+
   const filter = (search)=>{
+    
     let searchResult = data.filter((data) => {
       if(data.name.toLowerCase().startsWith(search.toLowerCase().trim()))
-      {return data;
+      {return data;}
         
-      }
     
     }
   );
-  setData(searchResult)
-  console.log(data)
+  // setData(searchResult)
+  setDataSearcheada(searchResult)
+  
+  
+  
+  
+  
 }
-  // data.filter(data => data.name.toLowerCase().startsWith(val.toLowerCase()))
+console.log(test)
+const fun = () => {
+if(dataSearcheada.length = undefined){
+  setDataSearcheada(data)
+}
+}
 
+console.log(test)
+console.log(dataSearcheada)
+  // data.filter(data => data.name.toLowerCase().startsWith(val.toLowerCase()))
+  
+
+  
 
   return (
     <div className="cardwrapperCity">
@@ -59,7 +82,9 @@ console.log(data)
         />
 
         <div className="positionCardCards">
-          {data?.map((city) => (
+          
+          {
+          dataSearcheada?.map((city) => (
             <div className="cardbodyCity">
               <img
                 className="imgcardBody"
@@ -69,26 +94,30 @@ console.log(data)
               <div className="cardtextCity">
                 <h3 className="h3titlecardCity">{city.name}</h3>
                 <div className="cardCityTextDisplay">
-                <div className="iconCity">
+                <img
+                className="flagCardCity"
+                src={process.env.PUBLIC_URL + `/img/flags/${city.flag}`}
+              />
+                {/* <div className="iconCity">
                   <PaidIcon />
                   {city.currency}
-                </div>
-                <div className="iconCity">
+                </div> */}
+                {/* <div className="iconCity">
                   <PeopleAltIcon /> {city.population}
-                </div>
-                <div className="iconCity">
+                </div> */}
+                {/* <div className="iconCity">
                   <FlagIcon /> {city.country}
-                </div>
-                <div className="iconCity">
+                </div> */}
+                {/* <div className="iconCity">
                   <TimerIcon /> {city.timezone}
-                </div>
+                </div> */}
                 </div>
               </div>
               <p className="reviewcardCity">
                 "{city.description}"
               </p>
               <div className="btnCardCities">
-              <Button variant="outlined">More information</Button>
+              <Button variant="outlined"><LinkRouter to={`Details/${city._id}`}>More Information</LinkRouter></Button>
               </div>
             </div>
           ))}

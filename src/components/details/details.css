@@ -7,7 +7,7 @@
 }
 
 .heroDetails{
-    /* background: linear-gradient(160deg, #0000004a 0%, #5731ae2a 100%),  url(../../../public/img/johannesburg.jpg) no-repeat center bottom; */
+    /* background: linear-gradient(160deg, #00000027 0%, #5731ae3e 100%); */
     /* background-size: cover; */
     object-fit: cover;
     object-position: 10% 50%;
@@ -20,19 +20,129 @@
     z-index: -10;
 }
 
-@media (max-width: 480px) {
-    .h1tittleheroDetails {
-        font-size: 1.5rem !important;
-    }
-    }
 
 .h1tittleheroDetails{
     background-color: black;
-    line-height: 40px;
     color: white;
     text-shadow: 1px 1px 1px black;
-    font-size: 40px;
+    font-size: 2rem;
     text-align: center;
+    
     margin: 0px;
     width: 100%;
+    padding: 8px;
 }
+
+/* NEW */
+
+.cardtextCityDetails{
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
+    /* border: 2px solid black; */
+    color: black;
+  
+}
+
+.cardCityTextDisplayDetails{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+
+.iconCityDetails{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 8px;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    font-size: 1.2rem;
+}
+
+.reviewcardCityDetails{
+    width: 100%;
+    margin: auto;
+    margin-top: 0%;
+    font-size:1.2rem;
+    font-style: italic;
+}
+
+.btnCardCitiesDetails{
+    width: 70%;
+    z-index: 3;
+    display: flex;
+    
+    justify-content: flex-end;
+    margin-top: 4%;
+    margin-right: 0%;
+    margin-bottom: 4%;
+}
+
+.pCityDetails{
+    width: 70%;
+    margin: auto;
+}
+
+.positionCardCardsDetails{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.flagCardCityDetails{
+    position: absolute;
+    border: 3px solid white;
+    border-radius: 360px;
+    width: 100px;
+    top: calc(60vh - 95px);
+    right: 14vw;
+
+}
+
+@media (max-width: 768px){
+
+    .cardCityTextDisplayDetails{
+        display: flex;
+        flex-direction: column;
+        justify-content:flex-start;
+        align-items: flex-start;
+        
+    }
+    .iconCityDetails{
+        display: flex;
+        flex-direction: row !important; 
+        align-items: center;
+        font-size: 0.9rem; 
+    }
+    .h1tittleheroDetails{
+        text-align: left;
+    }
+    .iconCityDetails{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .h1tittleheroDetails {
+        font-size: 1.7rem !important;
+    }
+    .flagCardCityDetails{
+    width: 90px !important;
+    }
+    .pCityDetails{
+        width: 90% !important;
+        margin: auto;
+    }
+    .iconCityDetails{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    }

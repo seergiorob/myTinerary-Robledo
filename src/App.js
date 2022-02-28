@@ -26,7 +26,7 @@ function App() {
       <Route path="/Home" element={<Home/>}/>
       <Route path="/Cities" element={<Cities/>}/>
       <Route path="*" element={<Home/>}/>
-      <Route path="/Details" element={<Details/>}/>
+      <Route path="Cities/Details/:id" element={<Details/>}/>
       </Routes>
       <Footer/> 
       </BrowserRouter>

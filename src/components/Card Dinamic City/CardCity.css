@@ -27,7 +27,7 @@
 
 .cardCityTextDisplay{
     display: flex;
-    
+    position: relative;
 }
 
 @media (max-width: 768px){
@@ -113,4 +113,23 @@
     justify-content: flex-end;
     margin-top: 8%;
     margin-right: 4%;
+}
+
+
+
+.flagCardCity{
+    position: absolute;
+    border: 3px solid white;
+    border-radius: 360px;
+    width: 70px;
+    top: -80px;
+    right: 0px;
+
+}
+
+@media (max-width: 768px){
+
+    .h3titlecardCity{
+        text-align: left;
+    }
 }
