@@ -66,9 +66,10 @@ console.log(dataSearcheada)
           
           {
           !isLoaded ? (<h2>Loading..</h2>) :
-          dataSearcheada.length === 0 ? (<h2>No se encontró una poronga</h2>) :
+          dataSearcheada.length === 0 ? (<h4>We're Sorry! We can't find any city for your search term. Please try another one.</h4>) :
           dataSearcheada?.map((city) => (
             <div className="cardbodyCity">
+              {city.travelers < 4000 ? '' : (<div className="badgeCardCity">TOP DESTINATION</div>)}
               <img
                 className="imgcardBody"
                 src={process.env.PUBLIC_URL + `/img/${city.image}`}
