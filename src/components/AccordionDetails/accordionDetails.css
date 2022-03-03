@@ -2,3 +2,67 @@
     width: 70%;
     margin: auto;
 }
+
+.boxDetails{
+    
+
+}
+
+.imgDetails{
+    width: 100%;
+}
+
+.profileDetails{
+    display: flex;
+    align-items: center;
+}
+.imgProfileDetails{
+    border-radius: 360px;
+    width: 50px;
+}
+
+.headerDetailsCard{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.hashDetails{
+    text-align: left;
+}
+.bottomDetails{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.iconLike{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.likeDetails{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+
+@media (max-width: 600px){
+
+    .headerDetailsCard{
+        flex-direction: column-reverse;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 20px;
+    }
+    .imgProfileDetails{
+        margin-bottom: 10px;
+    }
+    .wrapperAccordionDetails{
+        width: 90%;
+    }
+    .bottomDetails{
+        flex-direction:column;
+        align-items: flex-start;
+    }
+
+    }

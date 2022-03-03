@@ -4,7 +4,11 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import './accordionDetails.css'
+import './accordionDetails.css';
+import Grid from '@mui/material/Grid'
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 
 export default function ControlledAccordions() {
   const [expanded, setExpanded] = React.useState(false);
@@ -23,56 +27,42 @@ export default function ControlledAccordions() {
           id="panel1bh-header"
           
         >
-          <Typography sx={{ width: '33%', flexShrink: 0 }}>
-            MyTineraries
-          </Typography>
-          <Typography sx={{ color: 'text.secondary' }}>Sorry! We're under construction.</Typography>
+          <Container maxwidth="lg">
+            <Grid container spacing={2}>
+            <Grid item xs={12} lg={4} >
+          <Box className="boxDetails" sx={{}}>
+            <img className="imgDetails" src={process.env.PUBLIC_URL + `/img/berlin.jpg`}/>
+          </Box>
+          </Grid>
+          <Grid item xs={12} lg={8} >
+          <Box className="headerDetailsCard" sx={{}}>
+          <Box className="itineraryDetail"> 
+          <Typography mx={0} sx={{ color: 'text.secondary' }}>Duration: 4 hours.</Typography>
+          <Typography mx={0} sx={{ color: 'text.secondary' }}>Price: 5u$d</Typography>
+          </Box> 
+          <Box className="profileDetails"> 
+            <img className="imgProfileDetails" src={process.env.PUBLIC_URL + `/img/profile/4.jpg`}/>
+            <Typography mx={1} sx={{ color: 'text.secondary' }}>Greg Geller.</Typography>
+            </Box>
+          </Box>
+          <Typography my={1} sx={{ color: 'text.secondary' }}>Exciting time travel back to the German Democratic Republic.</Typography>
+          <Typography sx={{ color: 'text.secondary' }}>The Wall and barbed wire shielded the GDR from the outside world. But what was everyday life like under socialism? Discover Berlin's largest and most diverse exhibition on the subject with more than 35 thematic areas and an original furnished tower block apartment! ​​​Under the scientific direction of the renowned historian Dr. Stefan Wolle we resurrect the past for you."</Typography>
+          <Box className="bottomDetails"> 
+          <Typography className="hashDetails" fontSize={12} my={1} sx={{ color: 'text.secondary' }}>#berlin #germany #history #wall</Typography>
+          <Typography className="likeDetails" fontSize={12} my={1} sx={{ color: 'text.secondary' }}> <ThumbUpIcon className="iconLike"/>Roger and 1 more like this! </Typography>
+          
+          </Box>
+          </Grid>
+          </Grid>
+          </Container>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Here you will find all the itineraries about this city.
+          Sorry! We're under construction.
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2bh-content"
-          id="panel2bh-header"
-        >
-          <Typography sx={{ width: '33%', flexShrink: 0 }}>Users</Typography>
-          <Typography sx={{ color: 'text.secondary' }}>
-            You are currently not an owner
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus,
-            varius pulvinar diam eros in elit. Pellentesque convallis laoreet
-            laoreet.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel3bh-content"
-          id="panel3bh-header"
-        >
-          <Typography sx={{ width: '33%', flexShrink: 0 }}>
-            Advanced settings
-          </Typography>
-          <Typography sx={{ color: 'text.secondary' }}>
-            Filtering has been entirely disabled for whole web server
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit
-            amet egestas eros, vitae egestas augue. Duis vel est augue.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
+      
       
       </div>
     </div>

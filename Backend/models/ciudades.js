@@ -10,7 +10,7 @@ const ciudadesSchema = new mongoose.Schema({
         timezone: {type:String, required:true}
 
 })
-//en vez de ciudades podría poner Usuarios, itinerario, etc
+
 const Ciudades = mongoose.model('ciudades', ciudadesSchema)
 
 module.exports = Ciudades
