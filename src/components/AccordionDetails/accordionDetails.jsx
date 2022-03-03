@@ -45,7 +45,7 @@ export default function ControlledAccordions() {
             <Typography mx={1} sx={{ color: 'text.secondary' }}>Greg Geller.</Typography>
             </Box>
           </Box>
-          <Typography my={1} sx={{ color: 'text.secondary' }}>Exciting time travel back to the German Democratic Republic.</Typography>
+          <Typography my={1} sx={{ color: 'text.secondary', fontWeight: 'bold' }}>Exciting time travel back to the German Democratic Republic.</Typography>
           <Typography sx={{ color: 'text.secondary' }}>The Wall and barbed wire shielded the GDR from the outside world. But what was everyday life like under socialism? Discover Berlin's largest and most diverse exhibition on the subject with more than 35 thematic areas and an original furnished tower block apartment! ​​​Under the scientific direction of the renowned historian Dr. Stefan Wolle we resurrect the past for you."</Typography>
           <Box className="bottomDetails"> 
           <Typography className="hashDetails" fontSize={12} my={1} sx={{ color: 'text.secondary' }}>#berlin #germany #history #wall</Typography>
