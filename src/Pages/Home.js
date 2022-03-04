@@ -5,7 +5,7 @@ import Cta from '../components/cta/Cta'
 import Gallery from '../components/gallery/Gallery'
 import Cardreview from '../components/cardreview/Cardreview'
 import Contact from '../components/contact/Contact'
-
+import Prova from '../components/prova/prova'
 function Home() {
     return (
         <div>
@@ -17,6 +17,7 @@ function Home() {
             
             <Contact/>
             <Cardreview/>
+            {/* <Prova/> */}
         </div>
     )
 }
