@@ -11,44 +11,49 @@ import TextField from '@mui/material/TextField'
 import { Button } from '@mui/material'
 import axios from 'axios'
 import {Link as LinkRouter} from "react-router-dom"
+import {connect} from 'react-redux';
+import ciudadesActions from '../../redux/actions/ciudadesActions'
 
-function CardCity() {
+function CardCity(props) {
 
-  const [data, setData] = useState()
-  const [search, setSearch] = useState('')
-  const [dataSearcheada, setDataSearcheada] = useState()
-  const [isLoaded, setIsLoaded] = useState(false)
+  // const [data, setData] = useState()
+  // const [search, setSearch] = useState('')
+  // const [dataSearcheada, setDataSearcheada] = useState()
+  // const [isLoaded, setIsLoaded] = useState(false)
   
+  const {todasCiudades: data, filtro: search, ciudades: dataSearcheada, cargado: isLoaded} = props;
+  const {filtrar, fetchearCiudades} = props;
 
   useEffect(()=> { 
-    axios.get(`http://localhost:4000/api/allcities`)
-    .then((response)=>{ 
-      setData(response.data.response.ciudades)
-      setDataSearcheada(response.data.response.ciudades)
-      setIsLoaded(true)
-    }
-    )
-
+    // axios.get(`http://localhost:4000/api/allcities`)
+    // .then((response)=>{ 
+    //   setData(response.data.response.ciudades)
+    //   setDataSearcheada(response.data.response.ciudades)
+    //   setIsLoaded(true)
+    // }
+    // )
+    !isLoaded && fetchearCiudades();
   },[])
 
   const handleChange=e=>{
-    setSearch(e.target.value);
-    filter(e.target.value)
+    // setSearch(e.target.value);
+    filtrar(e.target.value.toLowerCase().trim())
   }
 
-  const filter = (search)=>{
+  // const filter = (search)=>{
     
-    let searchResult = data.filter((data) => {
-      if(data.name.toLowerCase().startsWith(search.toLowerCase().trim()))
-      {return data;}
+  //   let searchResult = data.filter((data) => {
+  //     if(data.name.toLowerCase().startsWith(search.toLowerCase().trim()))
+  //     {return data;}
         
     
-    }
-  );
-  setDataSearcheada(searchResult)
+  //   }
+  // );
+  // setDataSearcheada(searchResult)
 
-}
-console.log(dataSearcheada)
+// }
+console.log(props)
+
   return (
     <div className="cardwrapperCity">
       <div className="positionCard">
@@ -111,4 +116,4 @@ console.log(dataSearcheada)
   )
 }
 
-export default CardCity
+export default connect(state => state.ciudadesReducer, ciudadesActions)(CardCity)

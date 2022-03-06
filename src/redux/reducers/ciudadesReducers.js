@@ -1,39 +1,64 @@
-
 const initialState = {
-    ciudades:[],
-    auxiliares:[]
+  todasCiudades: [],
+  ciudades: [],
+  filtro: '',
+  cargado: false,
 }
 
 const ciudadesReducer = (state = initialState, action) => {
-
-    switch(action.type) {
-        case 'fetch':
-            return{
-            ...state,
-            ciudades: action.payload,
-            auxiliar: action.payload,
-            }
-        case 'delete':
-            return{
-                ...state,
-                ciudades: action.payload,
-            }
-        case 'cargarCiudad':
-            let ciudades = [...state.ciudades]
-            ciudades.push(action.payload)
-            return{
-                ...state,
-                ciudades,
-                auxiliar: [...ciudades]
-            }
-        case 'filtro':
-            const filtrado = action.payload.ciudades.filter((ciudad) => ciudad.name.toLowerCase().startsWith(action.payload.value.toLowerCase()))
-            return {
-                ...state,
-                ciudades: filtrado
-            }
-        default:
-            return state
+  switch (action.type) {
+    case 'ciudades/fetch': {
+      const cargado = true
+      const todasCiudades = action.payload
+      const ciudades = todasCiudades.filter((ciudad) =>
+        ciudad.name.toLowerCase().startsWith(state.filtro),
+      )
+      return {
+        ...state,
+        cargado,
+        ciudades,
+        todasCiudades,
+      }
     }
+    case 'ciudades/delete': {
+      const todasCiudades = action.payload.filter(
+        (ciudad) => ciudad._id !== action.payload._id,
+      )
+      const ciudades = todasCiudades.filter((ciudad) =>
+        ciudad.name.toLowerCase().startsWith(state.filtro),
+      )
+      return {
+        ...state,
+        ciudades,
+        todasCiudades,
+      }
+    }
+    case 'ciudades/cargarCiudad': {
+      const todasCiudades = [...state.todasCiudades, action.payload];
+      const ciudades = todasCiudades.filter((ciudad) =>
+        ciudad.name.toLowerCase().startsWith(state.filtro),
+      )
+      return {
+        ...state,
+        ciudades,
+        todasCiudades: ciudades,
+      }
+    }
+    case 'ciudades/filtro': {
+        const filtro = action.payload.toLowerCase();
+        const ciudades = state.todasCiudades.filter((ciudad) =>
+          ciudad.name
+            .toLowerCase()
+            .startsWith(filtro)
+        )
+      return {
+        ...state,
+        filtro,
+        ciudades,
+      }
+    }
+    default:
+      return state
+  }
 }
 export default ciudadesReducer

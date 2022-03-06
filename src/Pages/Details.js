@@ -6,7 +6,7 @@ function Details() {
     return (
         <div>
             <DetailsC/>
-            <ControlledAccordions/>
+            {/* <ControlledAccordions/> */}
         </div>
     )
 }

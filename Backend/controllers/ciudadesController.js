@@ -8,6 +8,7 @@ const ciudadesController = {
 
         try{
             ciudades = await Ciudades.find()
+            .populate('Itineraries')
         }catch(err){
             error = err
             console.error(error)
@@ -32,16 +33,37 @@ const ciudadesController = {
     borrarCiudad: async (req,res)=>{
         const id = req.params.id
         console.log(req.params)
-        await Ciudades.findOneAndDelete({_id:id})
+        res.json(await Ciudades.findOneAndDelete({_id:id}));
     },
     modificarCiudad: async (req, res)=>{
-        console.log(request.body) //con este modifico
-        console.log(request.params) //con este busco una ciudad existente
+        console.log(req.body) //con este modifico
+        console.log(req.params) //con este busco una ciudad existente
         const id = req.params.id
         const ciudad = req.body
 
         let ciudadb = await Ciudades.findOneAndUpdate({_id:id},ciudad)
         console.log(ciudadb)
+        res.json(ciudadb)
+    },
+    obtenerUnaCiudad: async (req, res) => {
+        const id = req.params.id
+        console.log(req.params)
+        let ciudad
+        let error = null
+
+        try{
+            ciudad = await Ciudades.findOne({_id:id},ciudad)
+            .populate('Itineraries')
+            console.log(ciudad)
+        }catch(err){
+            error = err
+            console.log(error)
+        }
+        res.json({
+            response: error ? 'ERROR' : ciudad,
+            success: error ? false : true,
+            error : error
+        })
     }
 
 }

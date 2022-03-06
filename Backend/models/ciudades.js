@@ -7,8 +7,8 @@ const ciudadesSchema = new mongoose.Schema({
         currency: {type:String, required:true},
         population: {type:String, required:true},
         country: {type:String, required:true},
-        timezone: {type:String, required:true}
-
+        timezone: {type:String, required:true},
+        Itineraries: [{type: mongoose.Schema.Types.ObjectId, ref: 'itineraries'}]
 })
 
 const Ciudades = mongoose.model('ciudades', ciudadesSchema)

@@ -10,7 +10,7 @@ class prova extends Component {
     // }
     componentDidMount() {
         this.props.fetchearCiudades()
-        // console.log(ciudades)
+        
 
     }
 
@@ -31,7 +31,7 @@ const mapDispatchToProps = {
 
  const mapStateToProps = (state) =>{
     return {
-        ciudades: state.ciudadReducer.ciudades,
+        ciudades: state.ciudadesReducer.ciudades,
         auxiliar: state.ciudadesReducer.auxiliar,
     }
  }

@@ -2,7 +2,7 @@ const Itineraries = require('../models/itineraries')
 
 const itinerariesController = {
 
-    obetnerItineraries: async (req, res) => {
+    obtenerItineraries: async (req, res) => {
         let itineraries
         let error = null
 
@@ -21,7 +21,7 @@ const itinerariesController = {
 
     cargaItinerary: async(req, res) => {
         console.log(req, body)
-        const {name, comment, itinerary, itineraryDesc, image, imgItinerary, Policy, price, likes, duration, hashtags} = req.body.dataInput
+        const {name, comment, itinerary, itineraryDesc, image, imgItinerary, Policy, price, likes, duration, hashtags, city} = req.body.dataInput
         new Itineraries({
             name: name,
             comment: comment,
@@ -34,6 +34,7 @@ const itinerariesController = {
             likes: likes,
             duration: duration,
             hashtags: hashtags,
+            city: city,
         }).save()
         .then((respuesta)=> res.json({respuesta}))
     },
@@ -50,6 +51,25 @@ const itinerariesController = {
 
         let itineraryb = await Itineraries.findOneAndUpdate({_id: id}, itinerary)
         console.log(itineraryb)
+    },
+    obtenerUnItinerary: async (req, res) => {
+        const id = req.params.city
+        console.log(req.params)
+        let itinerary
+        let error = null
+
+        try{
+            itinerary = await Itineraries.findOne({_id:id}, itinerary)
+            console.log(itinerary)
+        }catch(err){
+            error = err
+            console.log(error)
+        }
+        res.json({
+            response: error ? 'ERROR' : itinerary,
+            success: error ? false : true,
+            error : error
+        })
     }
 
 }
