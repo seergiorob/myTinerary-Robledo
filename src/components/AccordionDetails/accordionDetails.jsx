@@ -60,7 +60,7 @@ const card = props.city;
   return (
     <div>
 
-{card == null ? (<h4>nono</h4>) : 
+{card == null ? (<h4>We're Sorry! We can't find any City there..</h4>) : 
 card.Itineraries.length === 0 ? (<h4>We're Sorry! We can't find any Itineraries for your City.</h4>) : 
           card.Itineraries.map((itinerary, index) => {
             

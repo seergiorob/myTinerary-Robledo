@@ -59,7 +59,7 @@ function DetailsC(props) {
         <div className="positionCardCardsDetails">
           
           
-          {city == null ? (<h4>hhoo</h4>): (
+          {city == null ? (<h4>We're Sorry! We can't find any City there..</h4>): (
 
 
             <div className="positionCardCardsDetails">
