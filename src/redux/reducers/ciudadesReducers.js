@@ -9,7 +9,7 @@ const ciudadesReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'ciudades/fetch': {
       const cargado = true
-      const todasCiudades = action.payload
+      const todasCiudades = action.payload.sort((left, right) => left._id.localeCompare(right._id));
       const ciudades = todasCiudades.filter((ciudad) =>
         ciudad.name.toLowerCase().startsWith(state.filtro),
       )

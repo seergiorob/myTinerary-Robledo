@@ -13,7 +13,7 @@ import {useParams} from 'react-router-dom'
 import axios from 'axios'
 import {connect} from 'react-redux';
 import ciudadesActions from '../../redux/actions/ciudadesActions'
-
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
  function ControlledAccordions(props) {
 
   const [expanded, setExpanded] = React.useState([]);
