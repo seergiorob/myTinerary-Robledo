@@ -15,19 +15,20 @@ import ciudadesActions from '../../redux/actions/ciudadesActions'
 
 function DetailsC(props) {
 
+    const {id} = useParams()
     // const [data, setData] = useState([])
     // const [itinData, setItinData] = useState([])
-    const {todasCiudades: data, cargado: isLoaded} = props;
-    const {fetchearCiudades} = props;
+    const {todasCiudades: data, cargado: isLoaded, ciudad: city } = props;
+    const {fetchearCiudades, fetchearCiudad } = props;
     useEffect(()=> { 
         // axios.get(`http://localhost:4000/api/allcities`)
         // .then(response=> setData(response.data.response.ciudades))
     
         // console.log(data)
-        !isLoaded && fetchearCiudades();
-      
+        // !isLoaded && fetchearCiudades();
+        fetchearCiudad(id)
       },[])
-
+console.log(city)
       // useEffect(()=> { 
         // axios.get(`http://localhost:4000/api/allitineraries`)
         // .then(response=> setItinData(response.data.response.itineraries))
@@ -39,9 +40,9 @@ function DetailsC(props) {
       
       
 
-    const {id} = useParams()
-    const city = data.find(city=> city._id == id)
-      console.log(city)
+    
+    // const city = data.find(city=> city._id == id)
+    //   console.log(city)
 
       
       // const PRUEBA = itinData.filter(city => city.city == card[0].name)
@@ -51,10 +52,7 @@ function DetailsC(props) {
     return (
       <>
         <div className="wrapperDetails">
-            
-            
-            {/* <img className="heroDetails" src={process.env.PUBLIC_URL+ `/img/johannesburg.jpg`}/>
-            <h1 className="h1tittleheroDetails">Detail City</h1> */}
+
         
         <div className="positionCardCardsDetails">
           
@@ -73,7 +71,6 @@ function DetailsC(props) {
               />
             <h1 className="h1tittleheroDetails">{city.name}</h1>
               <div className="cardtextCityDetails">
-                {/* <h3 className="h3titlecardCity"></h3> */}
                 <div className="cardCityTextDisplayDetails">
                 <div className="iconCityDetails">
                   <PaidIcon />
@@ -103,8 +100,9 @@ function DetailsC(props) {
         </div>
       </div>
 
-        <ControlledAccordions city={city}/>
+        <ControlledAccordions city={city.Itineraries}/>
         </>
+      
     )
 }
 

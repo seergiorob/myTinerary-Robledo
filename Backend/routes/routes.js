@@ -14,7 +14,7 @@ Router.route('/allcities/:id')
 .put(modificarCiudad)
 .get(obtenerUnaCiudad)
 
-const {obtenerItineraries, cargaItinerary, borrarItinerary, modificarItinerary,obtenerUnItinerary} = itinerariesController
+const {obtenerItineraries, cargaItinerary, borrarItinerary, modificarItinerary,obtenerUnItinerary, obtenerItinerarioPorCiudad} = itinerariesController
 
 Router.route('/allitineraries')
 .get(obtenerItineraries)
@@ -24,5 +24,9 @@ Router.route('/allitineraries/:id')
 .delete(borrarItinerary)
 .put(modificarItinerary)
 .get(obtenerUnItinerary)
+
+Router.route('/allitineraries/city/:id')
+.get(obtenerItinerarioPorCiudad)
+
 
 module.exports = Router

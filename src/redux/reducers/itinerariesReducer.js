@@ -3,6 +3,7 @@ const initialState = {
     itinerarios: [],
     filtroItinerarios: '',
     cargadoi: false,
+    itinerariosPorCiudad: [],
   }
   
   const itinerariesReducer = (state = initialState, action) => {
@@ -25,7 +26,19 @@ const initialState = {
           ...state,
           cargadoi: true,
           itinerarios: action.payload
+        }   
         }
+        case 'itineraryCiudad/fetch': {
+          return{
+            ...state,
+            cargadoi: true,
+            itinerariosPorCiudad: action.payload
+          
       }
+      }
+        default: {
+          return state
+        }
     }
 }
+export default itinerariesReducer;

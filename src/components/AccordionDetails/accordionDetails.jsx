@@ -12,7 +12,7 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import {useParams} from 'react-router-dom'
 import axios from 'axios'
 import {connect} from 'react-redux';
-import ciudadesActions from '../../redux/actions/ciudadesActions'
+import itineraryActions from '../../redux/actions/itineraryActions'
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 
  function ControlledAccordions(props) {
@@ -46,28 +46,34 @@ import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
     
     // console.log(itinData)
     
-    
+
     // console.log(data)
-  // const {id} = useParams()
+  const {id} = useParams()
   // const card = data.filter(city=> city._id == id)
   // const card = data.find(city=> city._id == id)
   //   console.log(card)
 const card = props.city;
     
     // const PRUEBA = card.filter(city => city.city == card2?.name)
-
+console.log(props)
     // console.log(PRUEBA)
 
+    useEffect(()=> {
+      props.fetchearItinerarioPorCiudad(id)
+    },[])
+
+    console.log(props.itinerariosPorCiudad)
+
     const bill1 = ' 💵 '
+console.log(props.city)
 
 
-
-  return (
+   return (
     <div>
 
-{card == null ? (<h4>We're Sorry! We can't find any City there..</h4>) : 
-card.Itineraries.length === 0 ? (<h4 className="itineraryNotFound">We're Sorry! We can't find any Itineraries for your City.</h4>) : 
-          card.Itineraries.map((itinerary, index) => {
+{props.itinerariosPorCiudad == null ? (<h4>We're Sorry! We can't find any City there..</h4>) : 
+props.itinerariosPorCiudad.length === 0 ? (<h4 className="itineraryNotFound">We're Sorry! We can't find any Itineraries for your City.</h4>) : 
+props.itinerariosPorCiudad.map((itinerary, index) => {
             
           return(<div key={"accordeon"+index} className="wrapperAccordionDetails">
           
@@ -130,10 +136,9 @@ card.Itineraries.length === 0 ? (<h4 className="itineraryNotFound">We're Sorry! 
           )}
       )}
 
-      {/* aca termina */}
-    </div>
+
+   </div>
   );
 }
 
-export default ControlledAccordions;
-// connect(state => state.ciudadesReducer, ciudadesActions)(ControlledAccordions)
+export default connect(state => state.itinerariesReducer, itineraryActions)(ControlledAccordions)

@@ -44,13 +44,15 @@ const itinerariesController = {
         await Itineraries.findOneAndDelete({_id: id})
     },
     modificarItinerary: async (req, res)=> {
-        console.log(request.body)
-        console.log(request.params)
+        console.log(req.body)
+        console.log(req.params)
         const id = req.params.id
         const itinerary = req.body
 
-        let itineraryb = await Itineraries.findOneAndUpdate({_id: id}, itinerary)
+        let itineraryb = await Itineraries.findOneAndUpdate({_id: id}, itinerary, {new: true})
         console.log(itineraryb)
+        
+        res.json({respuesta: itineraryb})
     },
     obtenerUnItinerary: async (req, res) => {
         const id = req.params.city
@@ -70,6 +72,17 @@ const itinerariesController = {
             success: error ? false : true,
             error : error
         })
+    },
+    obtenerItinerarioPorCiudad: async (req, res) => {
+        const id = req.params.id
+        try{
+            const itinerarios = await Itineraries.find({city:id})
+            res.json(
+                itinerarios
+            )
+        }catch(err){
+            res.status(404).json({msg: err.message})
+        }
     }
 
 }

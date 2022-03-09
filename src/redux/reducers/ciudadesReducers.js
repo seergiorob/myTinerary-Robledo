@@ -3,6 +3,7 @@ const initialState = {
   ciudades: [],
   filtro: '',
   cargado: false,
+  ciudad: {},
 }
 
 const ciudadesReducer = (state = initialState, action) => {
@@ -20,11 +21,11 @@ const ciudadesReducer = (state = initialState, action) => {
         todasCiudades,
       }
     }
-    case 'ciudades/fetchOne': {
+    case 'ciudad/fetchOne': {
       return{
         ...state,
         cargado: true,
-        ciudades: action.payload
+        ciudad: action.payload
       }
     }
     case 'ciudades/delete': {
