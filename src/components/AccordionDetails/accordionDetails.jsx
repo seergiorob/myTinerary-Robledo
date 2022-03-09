@@ -90,7 +90,7 @@ card.Itineraries.length === 0 ? (<h4>We're Sorry! We can't find any Itineraries 
           <Box className="headerDetailsCard" sx={{}}>
           <Box className="itineraryDetail"> 
           <Typography mx={0} sx={{ color: 'text.secondary' }}>Duration: {itinerary.duration}.</Typography>
-          <Typography mx={0} sx={{ color: 'text.secondary' }}>Price: {itinerary.price}</Typography>
+          <Typography mx={0} sx={{ color: 'text.secondary' }}>Price:) {itinerary.price}</Typography>
           </Box> 
           <Box className="profileDetails"> 
             <img className="imgProfileDetails" src={process.env.PUBLIC_URL + `/img/profile/${itinerary.image}`}/>
