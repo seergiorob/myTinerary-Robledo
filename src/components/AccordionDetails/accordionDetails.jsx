@@ -14,6 +14,7 @@ import axios from 'axios'
 import {connect} from 'react-redux';
 import ciudadesActions from '../../redux/actions/ciudadesActions'
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+
  function ControlledAccordions(props) {
 
   const [expanded, setExpanded] = React.useState([]);
@@ -65,7 +66,7 @@ const card = props.city;
     <div>
 
 {card == null ? (<h4>We're Sorry! We can't find any City there..</h4>) : 
-card.Itineraries.length === 0 ? (<h4>We're Sorry! We can't find any Itineraries for your City.</h4>) : 
+card.Itineraries.length === 0 ? (<h4 className="itineraryNotFound">We're Sorry! We can't find any Itineraries for your City.</h4>) : 
           card.Itineraries.map((itinerary, index) => {
             
           return(<div key={"accordeon"+index} className="wrapperAccordionDetails">

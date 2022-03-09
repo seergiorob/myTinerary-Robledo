@@ -7,6 +7,14 @@ const ciudadesActions = {
       dispatch({ type: 'ciudades/fetch', payload: res.data.response.ciudades })
     }
   },
+  fetchearCiudad: (id) => {
+    return async (dispatch, getState) => {
+      const res = await axios.get('http://localhost:4000/api/allcities/' + id);
+      if (res.data.sucess) {
+        dispatch({type: 'ciudades/fetchOne', payload: res.data.response.ciudades })
+      }
+    }
+  },
   borrarCiudad: (id) => {
     return async (dispatch, getState) => {
       try {

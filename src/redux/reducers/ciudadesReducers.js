@@ -20,6 +20,13 @@ const ciudadesReducer = (state = initialState, action) => {
         todasCiudades,
       }
     }
+    case 'ciudades/fetchOne': {
+      return{
+        ...state,
+        cargado: true,
+        ciudades: action.payload
+      }
+    }
     case 'ciudades/delete': {
       const todasCiudades = action.payload.filter(
         (ciudad) => ciudad._id !== action.payload._id,
