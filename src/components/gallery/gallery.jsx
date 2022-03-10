@@ -47,7 +47,7 @@ export default function Gallery() {
 
         {imagenes.map(foto => 
 
-        <SwiperSlide>
+        <SwiperSlide key={foto.name}>
             
             <div className="divslider"> 
               <img src={process.env.PUBLIC_URL+ `/img/${foto.img}`}/>

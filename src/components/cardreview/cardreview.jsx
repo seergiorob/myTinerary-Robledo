@@ -23,7 +23,7 @@ function Cardreview() {
         <div className="cardwrapper1">
             {commentsArray.map(user => 
 
-            <div className="cardbody1">
+            <div className="cardbody1" key={user.name}>
                 <img className="imgcard1" src={process.env.PUBLIC_URL+ `/img/${user.imgcity}`}/>
                 <img className="imgcard2" src={process.env.PUBLIC_URL+ `/img/profile/${user.img}`}/>
                 <a className="iglogocard" href="https://www.instagram.com/mindhub_la/?hl=es"><InstagramIcon/></a>

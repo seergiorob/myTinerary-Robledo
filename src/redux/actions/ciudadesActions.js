@@ -10,7 +10,7 @@ const ciudadesActions = {
   fetchearCiudad: (id) => {
     return async (dispatch, getState) => {
       const res = await axios.get('http://localhost:4000/api/allcities/' + id);
-      console.log(res.data.response)
+      // console.log(res.data.response)
       try{
         dispatch({type: 'ciudad/fetchOne', payload: res.data.response })
       }catch (err) {

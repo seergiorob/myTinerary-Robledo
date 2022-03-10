@@ -24,11 +24,7 @@ import itineraryActions from '../../redux/actions/itineraryActions'
       props.fetchearItinerarioPorCiudad(id)
     },[])
 
-    console.log(props.itinerariosPorCiudad)
-
     const bill1 = ' 💵 '
-console.log(props.city)
-
 
    return (
     <div>
