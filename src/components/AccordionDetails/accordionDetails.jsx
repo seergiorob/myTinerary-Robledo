@@ -10,53 +10,15 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import {useParams} from 'react-router-dom'
-import axios from 'axios'
 import {connect} from 'react-redux';
 import itineraryActions from '../../redux/actions/itineraryActions'
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+
 
  function ControlledAccordions(props) {
 
   const [expanded, setExpanded] = React.useState([]);
 
-  
-   
-
-  // const [data, setData] = useState([])
-  // const [itinData, setItinData] = useState([])
-
-  // const {todasCiudades: data, cargado: isLoaded} = props;
-  // const {fetchearCiudades} = props;
-
-  // useEffect(()=> { 
-      // axios.get(`http://localhost:4000/api/allcities`)
-      // .then(response=> setData(response.data.response.ciudades))
-  
-      // console.log(data)
-    // !isLoaded && fetchearCiudades();
-    
-    // },[])
-
-    // useEffect(()=> { 
-    //   axios.get(`http://localhost:4000/api/allitineraries`)
-    //   .then(response=> setItinData(response.data.response.itineraries))
-  
-      
-    // },[])
-    
-    // console.log(itinData)
-    
-
-    // console.log(data)
   const {id} = useParams()
-  // const card = data.filter(city=> city._id == id)
-  // const card = data.find(city=> city._id == id)
-  //   console.log(card)
-const card = props.city;
-    
-    // const PRUEBA = card.filter(city => city.city == card2?.name)
-console.log(props)
-    // console.log(PRUEBA)
 
     useEffect(()=> {
       props.fetchearItinerarioPorCiudad(id)

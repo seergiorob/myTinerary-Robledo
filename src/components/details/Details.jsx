@@ -1,7 +1,6 @@
 import React, { useEffect, useState} from 'react'
 import './details.css'
 import {useParams} from 'react-router-dom'
-
 import PaidIcon from '@mui/icons-material/Paid'
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt'
 import FlagIcon from '@mui/icons-material/Flag'
@@ -9,45 +8,18 @@ import TimerIcon from '@mui/icons-material/Timer'
 import { Button } from '@mui/material'
 import {Link as LinkRouter} from "react-router-dom"
 import ControlledAccordions from "../AccordionDetails/accordionDetails"
-// import axios from 'axios'
 import {connect} from 'react-redux';
 import ciudadesActions from '../../redux/actions/ciudadesActions'
 
 function DetailsC(props) {
 
     const {id} = useParams()
-    // const [data, setData] = useState([])
-    // const [itinData, setItinData] = useState([])
     const {todasCiudades: data, cargado: isLoaded, ciudad: city } = props;
     const {fetchearCiudades, fetchearCiudad } = props;
-    useEffect(()=> { 
-        // axios.get(`http://localhost:4000/api/allcities`)
-        // .then(response=> setData(response.data.response.ciudades))
     
-        // console.log(data)
-        // !isLoaded && fetchearCiudades();
+    useEffect(()=> { 
         fetchearCiudad(id)
       },[])
-console.log(city)
-      // useEffect(()=> { 
-        // axios.get(`http://localhost:4000/api/allitineraries`)
-        // .then(response=> setItinData(response.data.response.itineraries))
-    
-        
-      // },[])
-      
-      // console.log(itinData)
-      
-      
-
-    
-    // const city = data.find(city=> city._id == id)
-    //   console.log(city)
-
-      
-      // const PRUEBA = itinData.filter(city => city.city == card[0].name)
-
-      // console.log(PRUEBA)
 
     return (
       <>

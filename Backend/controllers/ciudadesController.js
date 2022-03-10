@@ -19,7 +19,7 @@ const ciudadesController = {
             error : error
         })
 
-    },//. si quiero agregar algo pongo , y sigo agregando por ej modificarCiudades (otro objeto, que también sería una función)
+    },
     cargarCiudad: async(req,res)=>{
         console.log(req,body)
         const {ciudad, pais, descripcion}= req.body.dataInput
@@ -36,8 +36,8 @@ const ciudadesController = {
         res.json(await Ciudades.findOneAndDelete({_id:id}));
     },
     modificarCiudad: async (req, res)=>{
-        console.log(req.body) //con este modifico
-        console.log(req.params) //con este busco una ciudad existente
+        console.log(req.body)
+        console.log(req.params) 
         const id = req.params.id
         const ciudad = req.body
 
