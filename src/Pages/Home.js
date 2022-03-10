@@ -1,11 +1,11 @@
 import React from 'react'
-import Hero from '../components/hero/Hero'
-import Us from '../components/us/Us'
-import Cta from '../components/cta/Cta'
-import Gallery from '../components/gallery/Gallery'
-import Cardreview from '../components/cardreview/Cardreview'
+import Hero from '../components/hero/hero'
+import Us from '../components/us/us'
+import Cta from '../components/cta/cta'
+import Gallery from '../components/gallery/gallery'
+import Cardreview from '../components/cardreview/cardreview'
 import Contact from '../components/contact/Contact'
-import Prova from '../components/prova/prova'
+
 function Home() {
     return (
         <div>

@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react';
 import ResponsiveAppBar from './components/nav/Nav'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import Footer from './components/footer/Footer'
+import Footer from './components/footer/footer'
 import Home from './Pages/Home'
 import Cities from './Pages/Cities'
 import Details from './Pages/Details'
