@@ -10,11 +10,16 @@ import {Link as LinkRouter} from "react-router-dom"
 import ControlledAccordions from "../AccordionDetails/accordionDetails"
 import {connect} from 'react-redux';
 import ciudadesActions from '../../redux/actions/ciudadesActions'
+// import ControlledAccordions from '@components/AccordionDetails/accordionDetails'
 
 function DetailsC(props) {
 
     const {id} = useParams()
     const {todasCiudades: data, cargado: isLoaded, ciudad: city } = props;
+    console.log("🚀 ~ file: Details.jsx ~ line 19 ~ DetailsC ~ city", city)
+    
+    
+
     const {fetchearCiudades, fetchearCiudad } = props;
     
     useEffect(()=> { 

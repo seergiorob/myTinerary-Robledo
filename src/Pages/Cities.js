@@ -1,5 +1,5 @@
 import React from 'react'
-import CardCity from '../components/Card Dinamic City/CardCity'
+import CardCity from '../components/CardDinamicCity/CardCity'
 import HeroCity from '../components/heroCity/HeroCity'
 
 

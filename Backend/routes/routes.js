@@ -2,6 +2,7 @@ const Router = require('express').Router();
 
 const ciudadesController = require('../controllers/ciudadesController')
 const itinerariesController = require('../controllers/itinerariesController')
+const userController = require('../controllers/userControllers')
 
 const {obtenerCiudades, cargarCiudad, modificarCiudad, borrarCiudad, obtenerUnaCiudad} = ciudadesController
 
@@ -27,6 +28,18 @@ Router.route('/allitineraries/:id')
 
 Router.route('/allitineraries/city/:id')
 .get(obtenerItinerarioPorCiudad)
+
+
+const { signUpUsers, signInUser, signOutUser} = userController;
+
+Router.route("/auth/signUp")
+.post(signUpUsers);
+
+Router.route("/auth/signIn")
+.post(signInUser);
+
+Router.route("/auth/signOut")
+.post(signOutUser)
 
 
 module.exports = Router

@@ -12,6 +12,7 @@ function CardCity(props) {
   const {todasCiudades: data, filtro: search, ciudades: dataSearcheada, cargado: isLoaded} = props;
   const {filtrar, fetchearCiudades} = props;
 
+  
   useEffect(()=> { 
 
     !isLoaded && fetchearCiudades();

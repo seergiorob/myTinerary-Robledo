@@ -6,6 +6,8 @@ import Home from './Pages/Home'
 import Cities from './Pages/Cities'
 import Details from './Pages/Details'
 import axios from 'axios'
+import SignUpPage from './Pages/SignUpPage';
+import SignInPage from './Pages/SignInPage';
 
 function App() {
 
@@ -22,6 +24,8 @@ function App() {
       <Route path="/Cities" element={<Cities/>}/>
       <Route path="*" element={<Home/>}/>
       <Route path="Cities/Details/:id" element={<Details/>}/>
+      <Route path="/SignUp" element={<SignUpPage/>}/>
+      <Route path="/SignIn" element={<SignInPage/>}/>
       </Routes>
       <Footer/> 
       </BrowserRouter>
