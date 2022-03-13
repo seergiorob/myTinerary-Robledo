@@ -6,7 +6,9 @@ const userControllers = {
     signUpUsers: async (req, res) => {
 
     let { firstName, lastName, email, password, profileurl, country, from } = req.body.userData;
-
+    console.log("🚀 ~ file: userControllers.js ~ line 9 ~ signUpUsers: ~ req.body", req.body)
+    
+ 
     try{
 
         const usuarioExiste = await User.findOne({ email });
@@ -57,7 +59,7 @@ const userControllers = {
                 res.json({
                     success: true,
                     from: "signup",
-                    message: "We send you an email confirmation, please check your email and confirm your account."
+                    message: "We send you an email confirmation, please check your inbox and confirm your account."
                 })
             }
         }
@@ -72,6 +74,8 @@ const userControllers = {
 signInUser: async (req, res) => {
     
     const { email, password, from } = req.body.loggedUser
+    console.log("🚀 ~ file: userControllers.js ~ line 77 ~ signInUser: ~ req.body", req.body)
+    
     try{
         const usuarioExiste = await User.findOne({ email })
 
@@ -104,7 +108,7 @@ signInUser: async (req, res) => {
             }
         } else {
             if(usuarioExiste.emailVerified){
-                let passwordMatch = usuarioExiste.password.filter(pass => bcrypt.compareSync(password, pass))
+                let passwordMatch = usuarioExiste.password.filter(pass => bcryptjs.compareSync(password, pass))
                 if (passwordMatch.length > 0){
                     const userData = {
                         firstName: usuarioExiste.firstName,
@@ -130,7 +134,7 @@ signInUser: async (req, res) => {
             res.json({
                 success: false,
                 from: from,
-                Message: "You did not verify your account, please check your email in order to complete the Sign Up"
+                Message: "You did not verify your account, please check your inbox in order to complete the Sign Up"
             })
         }
         }

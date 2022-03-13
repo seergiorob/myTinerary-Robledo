@@ -14,7 +14,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import userActions from '../../redux/actions/userActions'
 import { connect } from 'react-redux'
-
+import ContainerSignIn from './containerSignIn'
 
 const theme = createTheme();
 
@@ -24,10 +24,11 @@ console.log("🚀 ~ file: SignIn.jsx ~ line 22 ~ SignIn ~ props", props)
 
 
   const handleSubmit = (event) => {
+  console.log("🚀 ~ file: SignIn.jsx ~ line 27 ~ handleSubmit ~ event", event)
     event.preventDefault();
     const loggedUser = {
       email: event.target[0].value,
-      password: event.target[1].value,
+      password: event.target[2].value,
       from: "from-SignIn"
     }
     props.signInUser(loggedUser);
@@ -38,6 +39,7 @@ console.log("🚀 ~ file: SignIn.jsx ~ line 22 ~ SignIn ~ props", props)
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs" sx={{mb: 4}}>
+        <ContainerSignIn/>
         <CssBaseline />
         <Box
           sx={{

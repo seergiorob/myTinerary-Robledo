@@ -25,15 +25,16 @@ const theme = createTheme()
 function SignUp(props) {
 
   const handleSubmit = (event) => {
+  console.log("🚀 ~ file: SignUp.jsx ~ line 28 ~ handleSubmit ~ event", event)
     event.preventDefault()
 
     const userData = {
       firstName: event.target[0].value,
-      lastName: event.target[1].value,
-      email: event.target[2].value,
-      password: event.target[3].value,
-      profileurl: event.target[4].value,
-      country: event.target[5].value,
+      lastName: event.target[2].value,
+      email: event.target[4].value,
+      password: event.target[6].value,
+      profileurl: event.target[8].value,
+      country: event.target[10].value,
       from: 'signup'
     }
     props.signUpUser(userData)
