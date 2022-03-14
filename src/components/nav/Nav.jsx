@@ -14,11 +14,14 @@ import MenuItem from '@mui/material/MenuItem';
 import {Link as LinkRouter} from 'react-router-dom'
 import PersonIcon from '@mui/icons-material/Person';
 import "./nav.css"
+import userActions from '../../redux/actions/userActions'
+import { connect } from 'react-redux'
 
 const pages = ['Home', 'Cities'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-const ResponsiveAppBar = () => {
+const ResponsiveAppBar = (props) => {
+console.log("🚀 ~ file: Nav.jsx ~ line 24 ~ ResponsiveAppBar ~ props", props)
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -132,7 +135,9 @@ const ResponsiveAppBar = () => {
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, color: 'white'  }}>
                 {/* <Avatar alt="Sergio Robledo" src="/static/images/avatar/1.jpg" /> */}
-                <PersonIcon/>
+                {props.user ? <img className="profileUrlnav" src={props.user.profileurl} alt={props.user.firstName}/> : 
+            <PersonIcon/> }
+                
               </IconButton>
             </Tooltip>
             <Menu
@@ -168,4 +173,15 @@ const ResponsiveAppBar = () => {
     </AppBar>
   );
 };
-export default ResponsiveAppBar;
+
+const mapStateToProps = (state) => {
+  return {
+      user: state.userReducer.user,
+  }
+}
+
+const mapDispatchToProps = {
+  signInUser: userActions.signInUser,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ResponsiveAppBar);

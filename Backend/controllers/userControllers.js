@@ -42,6 +42,7 @@ const userControllers = {
                 lastName,
                 email,
                 password: [passwordHashed],
+                profileurl,
                 emailVerified: true,
                 from: [from],
             })
@@ -92,6 +93,7 @@ signInUser: async (req, res) => {
                     firstName: usuarioExiste.firstName,
                     lastName: usuarioExiste.lastName,
                     email: usuarioExiste.email,
+                    profileurl: usuarioExiste.profileurl,
                     from: usuarioExiste.from
                     }
                 await usuarioExiste.save();
@@ -114,6 +116,7 @@ signInUser: async (req, res) => {
                         firstName: usuarioExiste.firstName,
                         lastName: usuarioExiste.lastName,
                         email: usuarioExiste.email,
+                        profileurl: usuarioExiste.profileurl,
                         from: usuarioExiste.from
                     }
 

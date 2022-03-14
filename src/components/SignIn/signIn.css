@@ -1,0 +1,17 @@
+.profileUrl{
+    width: 100%;
+    border: 2px solid rgb(14, 76, 182);
+    border-radius: 360px;
+}
+
+.containerSignIn{
+    background-image: url(../../../public/img/amalficoast.jpg);
+    margin-top: -15px;
+}
+
+.cardSignIn{
+    background-color: white;
+    border-radius: 16px;
+    margin: 30px;
+    padding: 20px;
+}

@@ -1,0 +1,17 @@
+.barInfo{
+    width: 100%;
+    color: white;
+    text-align: center;
+    background-color: rgb(44, 85, 218);
+    height: 2rem;
+    border-radius: 16px;
+}
+
+.barInfo>h6{
+    line-height: 2rem;
+    font-weight: bold;
+}
+
+.containerBarInfo{
+    margin-top: 20px;
+}

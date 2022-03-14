@@ -15,6 +15,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import userActions from '../../redux/actions/userActions'
 import { connect } from 'react-redux'
 import ContainerSignIn from './containerSignIn'
+import { Link as LinkRouter } from 'react-router-dom'
+import "./signIn.css"
 
 const theme = createTheme();
 
@@ -37,11 +39,12 @@ console.log("🚀 ~ file: SignIn.jsx ~ line 22 ~ SignIn ~ props", props)
   };
 
   return (
+    <div className="containerSignIn">
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs" sx={{mb: 4}}>
+      <Container   component="main" maxWidth="xs" sx={{mb: 4}}>
         <ContainerSignIn/>
         <CssBaseline />
-        <Box
+        <Box className="cardSignIn"
           sx={{
             marginTop: 8,
             display: 'flex',
@@ -50,7 +53,8 @@ console.log("🚀 ~ file: SignIn.jsx ~ line 22 ~ SignIn ~ props", props)
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: 'primary.main' }}>
-            <LockOutlinedIcon />
+            {props.user ? <img className="profileUrl" src={props.user.profileurl} alt={props.user.firstName}/> : 
+            <LockOutlinedIcon /> }
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign in
@@ -95,9 +99,10 @@ console.log("🚀 ~ file: SignIn.jsx ~ line 22 ~ SignIn ~ props", props)
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
+              <LinkRouter className="" to="/SignUp" >Don't have an account? Sign Up</LinkRouter>
+                {/* <Link href="#" variant="body2">
                   {"Don't have an account? Sign Up"}
-                </Link>
+                </Link> */}
               </Grid>
             </Grid>
           </Box>
@@ -105,11 +110,18 @@ console.log("🚀 ~ file: SignIn.jsx ~ line 22 ~ SignIn ~ props", props)
         
       </Container>
     </ThemeProvider>
+    </div>
   );
+}
+
+const mapStateToProps = (state) => {
+  return {
+      user: state.userReducer.user,
+  }
 }
 
 const mapDispatchToProps = {
   signInUser: userActions.signInUser,
 }
 
-export default connect(null, mapDispatchToProps)(SignIn);
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

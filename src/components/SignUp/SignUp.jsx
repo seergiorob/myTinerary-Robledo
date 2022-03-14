@@ -19,6 +19,7 @@ import FormControl from '@mui/material/FormControl';
 import countries from '../datospaises'
 import userActions from '../../redux/actions/userActions'
 import { connect } from 'react-redux'
+import { Link as LinkRouter } from 'react-router-dom'
 
 const theme = createTheme()
 
@@ -166,9 +167,10 @@ function SignUp(props) {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
+              <LinkRouter className="" to="/SignIn" >Already have an account? Sign In</LinkRouter>
+                {/* <Link href="#" variant="body2">
                   Already have an account? Sign in
-                </Link>
+                </Link> */}
               </Grid>
             </Grid>
           </Box>
