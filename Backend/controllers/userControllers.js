@@ -25,14 +25,14 @@ const userControllers = {
                 res.json({
                     success: true, 
                     from: "signup",
-                    message: "Please verify your email address on your inbox."
+                    message: "✅ Please verify your email address on your inbox."
                 })
                 }else{
                     usuarioExiste.save()
 
                     res.json({success:true,
                             from:"signup",
-                            message: "We add "+form+" to your Sign In methods" })
+                            message: "✅ We add "+form+" to your Sign In methods" })
                 }
             }
         } else { 
@@ -52,7 +52,7 @@ const userControllers = {
                 res.json({
                     success: true,
                     from: "signup",
-                    message: "Congratulations, your new account has been created" +from
+                    message: "✅ Congratulations, your new account has been created" +from
                 })
             } else {
                 await nuevoUsuario.save()
@@ -60,14 +60,14 @@ const userControllers = {
                 res.json({
                     success: true,
                     from: "signup",
-                    message: "We send you an email confirmation, please check your inbox and confirm your account."
+                    message: "✅ We send you an email confirmation, please check your inbox and confirm your account."
                 })
             }
         }
 
     } catch (error) {
         console.log(error)
-        res.json({success: false, message: "Something went wrong, please try again in a few minutes. "})
+        res.json({success: false, message: "❌ Something went wrong, please try again in a few minutes. "})
     }
 
 

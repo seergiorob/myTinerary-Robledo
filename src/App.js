@@ -8,8 +8,10 @@ import Details from './Pages/Details'
 import axios from 'axios'
 import SignUpPage from './Pages/SignUpPage';
 import SignInPage from './Pages/SignInPage';
+import userActions from './redux/actions/userActions'
+import { connect } from 'react-redux'
 
-function App() {
+function App(props) {
 
 
   return (
@@ -24,8 +26,10 @@ function App() {
       <Route path="/Cities" element={<Cities/>}/>
       <Route path="*" element={<Home/>}/>
       <Route path="Cities/Details/:id" element={<Details/>}/>
+
       <Route path="/SignUp" element={<SignUpPage/>}/>
       <Route path="/SignIn" element={<SignInPage/>}/>
+      
       </Routes>
       <Footer/> 
       </BrowserRouter>
@@ -35,6 +39,16 @@ function App() {
   );
 }
 
-export default App;
+const mapDispatchToProps = {
+  signUpUser: userActions.signUpUser,
+}
+const mapStateToProps = (state) => {
+  return {
+    message: state.userReducer.message,
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
 
 

@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { useState } from 'react'
 import Avatar from '@mui/material/Avatar'
 import Button from '@mui/material/Button'
 import CssBaseline from '@mui/material/CssBaseline'
@@ -20,13 +21,15 @@ import countries from '../datospaises'
 import userActions from '../../redux/actions/userActions'
 import { connect } from 'react-redux'
 import { Link as LinkRouter } from 'react-router-dom'
+import Swal from 'sweetalert2'
+import Snackbar from '../Snackbar/Snackbar';
 
 const theme = createTheme()
 
 function SignUp(props) {
 
   const handleSubmit = (event) => {
-  console.log("🚀 ~ file: SignUp.jsx ~ line 28 ~ handleSubmit ~ event", event)
+  
     event.preventDefault()
 
     const userData = {
@@ -39,16 +42,27 @@ function SignUp(props) {
       from: 'signup'
     }
     props.signUpUser(userData)
+
     }
 
+    // const [email, setEmail] = useState('')
+    // console.log("🚀 ~ file: SignUp.jsx ~ line 57 ~ SignUp ~ email", email)
+
+    
     
     console.log("🚀 ~ file: SignUp.jsx ~ line 43 ~ SignUp ~ props.message", props.message)
+   
+
+
+    
+    
   
 
   return (
     
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs" sx={{mb: 4}}>
+    
         <CssBaseline />
         <Box
           sx={{
@@ -70,6 +84,7 @@ function SignUp(props) {
             onSubmit={handleSubmit}
             sx={{ mt: 3 }}
           >
+            
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -82,6 +97,7 @@ function SignUp(props) {
                   autoFocus
                 />
               </Grid>
+              
               <Grid item xs={12} sm={6}>
                 <TextField
                   required
@@ -92,6 +108,7 @@ function SignUp(props) {
                   autoComplete="family-name"
                 />
               </Grid>
+
               <Grid item xs={12}>
                 <TextField
                   required
@@ -100,6 +117,8 @@ function SignUp(props) {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  // value={email}
+                  // onChange={e=>setEmail(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -131,15 +150,16 @@ function SignUp(props) {
             <Select
             labelId="country"
             id="country"
-            // value={}
+            //value={}
+    
             label="Country"
-            // onChange={}
+            //onChange={}
             >
             
             {
         countries.map((item) => (
           
-            <MenuItem key={item.country}>{item.country}</MenuItem>
+            <MenuItem value={item.country} key={item.country}>{item.country}</MenuItem>
             
             ))}
             </Select>
@@ -175,7 +195,7 @@ function SignUp(props) {
             </Grid>
           </Box>
         </Box>
-        
+        <Snackbar/>
       </Container>
     </ThemeProvider>
 
@@ -188,6 +208,7 @@ const mapDispatchToProps = {
 const mapStateToProps = (state) => {
   return {
     message: state.userReducer.message,
+    message2: state.userReducer.message2,
   }
 }
 

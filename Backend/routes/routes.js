@@ -4,6 +4,8 @@ const ciudadesController = require('../controllers/ciudadesController')
 const itinerariesController = require('../controllers/itinerariesController')
 const userController = require('../controllers/userControllers')
 
+const validator = require('../config/validator')
+
 const {obtenerCiudades, cargarCiudad, modificarCiudad, borrarCiudad, obtenerUnaCiudad} = ciudadesController
 
 Router.route('/allcities')
@@ -33,7 +35,7 @@ Router.route('/allitineraries/city/:id')
 const { signUpUsers, signInUser, signOutUser} = userController;
 
 Router.route("/auth/signUp")
-.post(signUpUsers);
+.post(validator, signUpUsers);
 
 Router.route("/auth/signIn")
 .post(signInUser);

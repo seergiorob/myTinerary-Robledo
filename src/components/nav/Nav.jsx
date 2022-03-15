@@ -21,7 +21,7 @@ const pages = ['Home', 'Cities'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = (props) => {
-console.log("🚀 ~ file: Nav.jsx ~ line 24 ~ ResponsiveAppBar ~ props", props)
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -157,15 +157,29 @@ console.log("🚀 ~ file: Nav.jsx ~ line 24 ~ ResponsiveAppBar ~ props", props)
               onClose={handleCloseUserMenu}
             >
               {/* {settings.map((setting) => ( */}
+                {props.user ?
+                
                 <MenuItem onClick={handleCloseUserMenu}>
+                <LinkRouter className="" to="/SignUp" > <Typography textAlign="center">Sign Out</Typography> </LinkRouter>
+                  
+                </MenuItem>
+
+                :
+
+                <div>
+                <MenuItem onClick={handleCloseUserMenu}>
+                  
                 <LinkRouter className="" to="/SignIn" > <Typography textAlign="center">Sign In</Typography> </LinkRouter>
                   
                 </MenuItem>
+
                 <MenuItem onClick={handleCloseUserMenu}>
                 <LinkRouter className="" to="/SignUp" > <Typography textAlign="center">Sign Up</Typography> </LinkRouter>
                   
                 </MenuItem>
-              
+                </div>
+                }
+
             </Menu>
           </Box>
         </Toolbar>
