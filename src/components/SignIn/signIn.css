@@ -4,14 +4,15 @@
     border-radius: 360px;
 }
 
-.containerSignIn{
+/* .containerSignIn{
     background-image: url(../../../public/img/amalficoast.jpg);
     margin-top: -15px;
-}
+    background-size:cover;
+} */
 
 .cardSignIn{
-    background-color: white;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.173);
     border-radius: 16px;
-    margin: 30px;
-    padding: 20px;
+    padding: 15px;
+    background-color: white;
 }

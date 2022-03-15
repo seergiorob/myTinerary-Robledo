@@ -1,0 +1,33 @@
+.heroSignIn{
+    /* background-image: url(../../../public/img/bridge-4636745_1920.jpg); */
+    background: linear-gradient(160deg, #0000008a 0%, #2626265b 100%), url(../../../public/img/amalficoast.jpg) no-repeat center center;
+    background-size: cover;
+    height: 60vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: -70px;
+    z-index: -10;
+}
+
+@media (max-width: 480px) {
+.tittleh2SignIn {
+    font-size: 1.5rem !important;
+}
+
+}
+
+
+
+.tittleh2SignIn{
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    font-size: 40px;
+    text-align: center;
+    margin: 10px;
+}
+
+
+

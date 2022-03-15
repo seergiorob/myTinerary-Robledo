@@ -23,6 +23,7 @@ import { connect } from 'react-redux'
 import { Link as LinkRouter } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import Snackbar from '../Snackbar/Snackbar';
+import "./signUp.css"
 
 const theme = createTheme()
 
@@ -59,12 +60,13 @@ function SignUp(props) {
   
 
   return (
-    
+    <div className="containerSignUP">
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs" sx={{mb: 4}}>
     
         <CssBaseline />
         <Box
+          className="cardSignUp"
           sx={{
             marginTop: 8,
             display: 'flex',
@@ -198,8 +200,9 @@ function SignUp(props) {
         <Snackbar/>
       </Container>
     </ThemeProvider>
-
+    </div>
   )
+  
 }
 
 const mapDispatchToProps = {

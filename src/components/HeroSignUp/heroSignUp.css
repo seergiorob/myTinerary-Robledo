@@ -1,0 +1,34 @@
+.heroSignUp{
+    /* background-image: url(../../../public/img/bridge-4636745_1920.jpg); */
+    background: linear-gradient(160deg, #0000008a 0%, #2626265b 100%), url(../../../public/img/lighthouse.jpg) no-repeat center center;
+    height: 60vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: -70px;
+    z-index: -10;
+}
+
+@media (max-width: 480px) {
+.tittleh2SignUp {
+    font-size: 1.5rem !important;
+}
+
+}
+
+/* background-color: #0093E9;
+background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%); */
+
+
+.tittleh2SignUp{
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    font-size: 40px;
+    text-align: center;
+    margin: 10px;
+}
+
+
+
