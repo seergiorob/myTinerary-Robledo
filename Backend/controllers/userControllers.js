@@ -1,7 +1,50 @@
 const User = require('../models/user')
 const bcryptjs = require('bcryptjs')
+const crypto = require('crypto')
+const nodemailer = require('nodemailer')
+const jwt = require('jsonwebtoken')
+
+const sendEmail = async (email, uniqueString) => {
+
+    const transporter = nodemailer.createTransport({
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true,
+        auth: {
+            user: "sergiomindhub@gmail.com",
+            pass: "sergio2882"
+        }
+    })
+
+
+let sender = "sergiomindhub@gmail.com"
+let mailOptions = {
+    from: sender,
+    to: email,
+    subject: "Veryfy blabla",
+    html: `Click on <a href=http://localhost:4000/api/verify/${uniqueString}>aqui</a> para confirmar tu cuenta`
+}
+    await transporter.sendMail(mailOptions, function (error, response){
+        if (error){console.log(error)}
+        else{
+            console.log("Message Sent")
+        }
+    })
+};
 
 const userControllers = {
+
+    verifyEmail: async (req, res) => {
+        const { uniqueString } = req.params;
+
+        const user = await User.findOne({ uniqueString })
+        console.log(user)
+        if (user) {
+            user.emailVerified = true
+            await user.save()
+            res.redirect("http://localhost:3000")
+        }else{res.json({success: false, response: "Your email is not verified"})}
+    },
 
     signUpUsers: async (req, res) => {
 
@@ -18,10 +61,12 @@ const userControllers = {
                 res.json({success: false, from: "signup", message: "Already registered, please Sign In"})
             } else {
                 const passwordHashed = bcrypt.hashSync(password, 10)
+                usuarioExiste.from.push(from)
                 usuarioExiste.password.push(passwordHashed)
                 if(from === "signup"){
+                    usuarioExiste.uniqueString = crypto.randomBytes(15).toString('hex')
                     await usuarioExiste.save()
-
+                    await sendEmail(email, usuarioExiste.uniqueString)
                 res.json({
                     success: true, 
                     from: "signup",
@@ -42,8 +87,9 @@ const userControllers = {
                 lastName,
                 email,
                 password: [passwordHashed],
+                uniqueString: crypto.randomBytes(15).toString('hex'),
                 profileurl,
-                emailVerified: true,
+                emailVerified: false,
                 from: [from],
             })
 
@@ -56,7 +102,7 @@ const userControllers = {
                 })
             } else {
                 await nuevoUsuario.save()
-
+                await sendEmail(email, nuevoUsuario.uniqueString)
                 res.json({
                     success: true,
                     from: "signup",
@@ -90,6 +136,7 @@ signInUser: async (req, res) => {
                 if (passwordMatch.length > 0) {
                 
                     const userData = {
+                    // id: usuarioExiste._id,
                     firstName: usuarioExiste.firstName,
                     lastName: usuarioExiste.lastName,
                     email: usuarioExiste.email,
@@ -98,9 +145,13 @@ signInUser: async (req, res) => {
                     }
                 await usuarioExiste.save();
 
+                // const token = jwt.sign({...userData}, process.env.SECRET_KEY,{expiresIn: 60*60*24})
+
                 res.json({success: true,
                         from: from,
-                        response: {userData},
+                        response: {
+                            // token, 
+                            userData},
                         message:"Welcome again" +userData.firstName
                         })
             } else {
@@ -113,6 +164,7 @@ signInUser: async (req, res) => {
                 let passwordMatch = usuarioExiste.password.filter(pass => bcryptjs.compareSync(password, pass))
                 if (passwordMatch.length > 0){
                     const userData = {
+                        // id: usuarioExiste._id,
                         firstName: usuarioExiste.firstName,
                         lastName: usuarioExiste.lastName,
                         email: usuarioExiste.email,
@@ -120,10 +172,14 @@ signInUser: async (req, res) => {
                         from: usuarioExiste.from
                     }
 
+                    // const token = jwt.sign({...userData}, process.env.SECRET_KEY,{expiresIn: 60*60*24})
+
                 res.json({
                     success: true,
                     from: from,
-                    response: { userData },
+                    response: {
+                        // token, 
+                        userData },
                     message: "Welcome again "+userData.firstName,
                 })
             }else{

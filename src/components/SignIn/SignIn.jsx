@@ -26,7 +26,6 @@ console.log("🚀 ~ file: SignIn.jsx ~ line 22 ~ SignIn ~ props", props)
 
 
   const handleSubmit = (event) => {
-  console.log("🚀 ~ file: SignIn.jsx ~ line 27 ~ handleSubmit ~ event", event)
     event.preventDefault();
     const loggedUser = {
       email: event.target[0].value,

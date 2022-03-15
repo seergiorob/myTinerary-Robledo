@@ -32,7 +32,7 @@ Router.route('/allitineraries/city/:id')
 .get(obtenerItinerarioPorCiudad)
 
 
-const { signUpUsers, signInUser, signOutUser} = userController;
+const { signUpUsers, signInUser, signOutUser, verifyEmail} = userController;
 
 Router.route("/auth/signUp")
 .post(validator, signUpUsers);
@@ -43,5 +43,7 @@ Router.route("/auth/signIn")
 Router.route("/auth/signOut")
 .post(signOutUser)
 
+Router.route('/verify/:uniqueString')
+.get(verifyEmail)
 
 module.exports = Router

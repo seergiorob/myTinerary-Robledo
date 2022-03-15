@@ -8,7 +8,8 @@ const userSchema = new mongoose.Schema({
     profileurl: { type: String},
     country: { type: String, required: false },
     emailVerified: { type: Boolean, required: true},
-    from: {type:Array}
+    from: {type:Array},
+    uniqueString: {type:String, required:true}
 });
 
 const User = mongoose.model("users", userSchema);
