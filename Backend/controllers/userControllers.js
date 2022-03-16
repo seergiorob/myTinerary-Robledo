@@ -136,7 +136,7 @@ signInUser: async (req, res) => {
                 if (passwordMatch.length > 0) {
                 
                     const userData = {
-                    // id: usuarioExiste._id,
+                    id: usuarioExiste._id,
                     firstName: usuarioExiste.firstName,
                     lastName: usuarioExiste.lastName,
                     email: usuarioExiste.email,
@@ -145,12 +145,12 @@ signInUser: async (req, res) => {
                     }
                 await usuarioExiste.save();
 
-                // const token = jwt.sign({...userData}, process.env.SECRET_KEY,{expiresIn: 60*60*24})
+                const token = jwt.sign({...userData}, process.env.SECRET_KEY,{expiresIn: 60*60*24})
 
                 res.json({success: true,
                         from: from,
                         response: {
-                            // token, 
+                            token, 
                             userData},
                         message:"Welcome again" +userData.firstName
                         })
@@ -164,7 +164,7 @@ signInUser: async (req, res) => {
                 let passwordMatch = usuarioExiste.password.filter(pass => bcryptjs.compareSync(password, pass))
                 if (passwordMatch.length > 0){
                     const userData = {
-                        // id: usuarioExiste._id,
+                        id: usuarioExiste._id,
                         firstName: usuarioExiste.firstName,
                         lastName: usuarioExiste.lastName,
                         email: usuarioExiste.email,
@@ -172,13 +172,13 @@ signInUser: async (req, res) => {
                         from: usuarioExiste.from
                     }
 
-                    // const token = jwt.sign({...userData}, process.env.SECRET_KEY,{expiresIn: 60*60*24})
+                    const token = jwt.sign({...userData}, process.env.SECRET_KEY,{expiresIn: 60*60*24})
 
                 res.json({
                     success: true,
                     from: from,
                     response: {
-                        // token, 
+                        token, 
                         userData },
                     message: "Welcome again "+userData.firstName,
                 })

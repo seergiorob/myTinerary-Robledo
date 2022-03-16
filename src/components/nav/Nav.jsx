@@ -22,6 +22,9 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = (props) => {
 
+
+
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -163,6 +166,7 @@ const ResponsiveAppBar = (props) => {
                 <LinkRouter className="" to="/SignUp" > <Typography textAlign="center">Sign Out</Typography> </LinkRouter>
                   
                 </MenuItem>
+              
 
                 :
 
