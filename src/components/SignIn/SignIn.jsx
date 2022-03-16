@@ -17,6 +17,9 @@ import { connect } from 'react-redux'
 import ContainerSignIn from './containerSignIn'
 import { Link as LinkRouter } from 'react-router-dom'
 import "./signIn.css"
+import FacebookSignIn from '../Facebook/FacebookSignIn'
+import GoogleSignIn from '../Google/SignInGoogle'
+
 
 const theme = createTheme();
 
@@ -26,11 +29,12 @@ console.log("🚀 ~ file: SignIn.jsx ~ line 22 ~ SignIn ~ props", props)
 
 
   const handleSubmit = (event) => {
+  console.log("🚀 ~ file: SignIn.jsx ~ line 27 ~ handleSubmit ~ event", event)
     event.preventDefault();
     const loggedUser = {
       email: event.target[0].value,
       password: event.target[2].value,
-      from: "from-SignIn"
+      from: "signup"
     }
     props.signInUser(loggedUser);
     
@@ -40,8 +44,17 @@ console.log("🚀 ~ file: SignIn.jsx ~ line 22 ~ SignIn ~ props", props)
   return (
     <div className="containerSignIn">
     <ThemeProvider theme={theme}>
-      <Container   component="main" maxWidth="xs" sx={{mb: 4}}>
+      <Container   component="main" maxWidth="xs" sx={{mb: 8}}>
+        
+      {props.user ? 
         <ContainerSignIn/>
+        :
+        <>
+        
+        <FacebookSignIn/>
+        <GoogleSignIn/>
+        
+
         <CssBaseline />
         <Box className="cardSignIn"
           sx={{
@@ -106,8 +119,9 @@ console.log("🚀 ~ file: SignIn.jsx ~ line 22 ~ SignIn ~ props", props)
             </Grid>
           </Box>
         </Box>
-        
+        </>}
       </Container>
+      
     </ThemeProvider>
     </div>
   );

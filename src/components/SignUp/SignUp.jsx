@@ -24,6 +24,8 @@ import { Link as LinkRouter } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import Snackbar from '../Snackbar/Snackbar';
 import "./signUp.css"
+import FacebookSignUp from '../Facebook/FacebookSignUp'
+import GoogleSignUp from '../Google/SignUpGoogle'
 
 const theme = createTheme()
 
@@ -49,21 +51,15 @@ function SignUp(props) {
     // const [email, setEmail] = useState('')
     // console.log("🚀 ~ file: SignUp.jsx ~ line 57 ~ SignUp ~ email", email)
 
-    
-    
-    console.log("🚀 ~ file: SignUp.jsx ~ line 43 ~ SignUp ~ props.message", props.message)
-   
-
-
-    
-    
-  
 
   return (
     <div className="containerSignUP">
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs" sx={{mb: 4}}>
     
+      <FacebookSignUp/>
+      <GoogleSignUp/>
+
         <CssBaseline />
         <Box
           className="cardSignUp"

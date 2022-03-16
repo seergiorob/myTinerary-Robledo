@@ -4,7 +4,7 @@ const validator = (req, res, next) => {
     const schema = joi.object({
         firstName: joi.string().max(20).min(3).trim().pattern(new RegExp('[a-zA-Z]')).required().messages({'string.min': '❌ The name must contain more than 3 characters.'}),
 
-        lastName: joi.string().max(20).min(3).trim().pattern(new RegExp('[a-zA-Z]')).required().messages({'string.min': '❌ The last name must contain more than 3 characters.'}),
+        lastName: joi.string().max(20).min(3).trim().pattern(new RegExp('[a-zA-Z]')).messages({'string.min': '❌ The last name must contain more than 3 characters.'}),
 
         email: joi.string().email({ minDomainSegments: 2 }).required().messages({
             'string.email': '❌ Wrong format email.'

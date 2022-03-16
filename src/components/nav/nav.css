@@ -20,3 +20,11 @@
     height: 40px;
     border-radius: 360px;
 }
+
+.signOutBtn{
+    background-color: white;
+    color: rgb(46, 134, 211);
+    border: none;
+    margin: 8px;
+    font-weight: bold;
+}

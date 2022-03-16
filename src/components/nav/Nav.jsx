@@ -21,8 +21,13 @@ const pages = ['Home', 'Cities'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = (props) => {
+console.log("🚀 ~ file: Nav.jsx ~ line 24 ~ ResponsiveAppBar ~ props", props)
 
+  
 
+function SignOutUser(){
+  props.SignOutUser(props.user.email)
+}
 
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -162,11 +167,14 @@ const ResponsiveAppBar = (props) => {
               {/* {settings.map((setting) => ( */}
                 {props.user ?
                 
-                <MenuItem onClick={handleCloseUserMenu}>
-                <LinkRouter className="" to="/SignUp" > <Typography textAlign="center">Sign Out</Typography> </LinkRouter>
+                // <MenuItem onClick={handleCloseUserMenu}>
+                // <LinkRouter className="" to="/SignUp" > <Typography textAlign="center">Sign Out</Typography> </LinkRouter>
                   
-                </MenuItem>
-              
+                // </MenuItem>
+                  
+                <button className="signOutBtn" onClick={SignOutUser}>
+                  Sign Out
+                </button>
 
                 :
 
@@ -200,6 +208,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   signInUser: userActions.signInUser,
+  SignOutUser: userActions.SignOutUser
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ResponsiveAppBar);

@@ -15,7 +15,7 @@ function ContainerSignIn(props) {
 
     return (
         <div className="containerBarInfo">
-            {props.user ? <div className="barInfo"> <h6>User logged in {props.user.firstName} from {props.user.from[0]}</h6></div> : <div className="barInfo"><h6>You're not logged in.</h6></div>}
+            {props.user ? <div className="barInfo"> <h6>User logged in as {props.user.firstName } from {props.user.from[0]}</h6></div> : <div className="barInfo"><h6>You're not logged in.</h6></div>}
         </div>
     )
 }

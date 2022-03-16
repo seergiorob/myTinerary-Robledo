@@ -90,6 +90,7 @@ const userControllers = {
                 uniqueString: crypto.randomBytes(15).toString('hex'),
                 profileurl,
                 emailVerified: false,
+                country: country,
                 from: [from],
             })
 
@@ -130,7 +131,7 @@ signInUser: async (req, res) => {
             res.json({success: false, message: "You are not registered, please sign up."})
             
         } else {
-            if (from !== "from-SignIn") {
+            if (from !== "signup") {
                 let passwordMatch = usuarioExiste.password.filter(pass => bcryptjs.compareSync(password, pass))
 
                 if (passwordMatch.length > 0) {
@@ -152,7 +153,7 @@ signInUser: async (req, res) => {
                         response: {
                             token, 
                             userData},
-                        message:"Welcome again" +userData.firstName
+                        message:"Welcome again " +userData.firstName
                         })
             } else {
                 res.json({success: false,
@@ -180,7 +181,7 @@ signInUser: async (req, res) => {
                     response: {
                         token, 
                         userData },
-                    message: "Welcome again "+userData.firstName,
+                    message: "Welcome again " +userData.firstName,
                 })
             }else{
                 res.json({
@@ -205,11 +206,21 @@ signInUser: async (req, res) => {
     }
 },
 signOutUser: async (req, res) => {
-    const email = req.body.closeUser
+    const email = req.body.closeuser
     const user = await User.findOne({ email })
     await user.save()
     res.json(console.log('Signed Out' + email))
 },
+verifyToken: (req, res) => {
+    if(!req.err){
+        res.json({success: true,
+                response: {id:req.user.id, firstName:req.user.firstName, lastName:req.user.lastName, email:req.user.email, profileurl:req.user.profileurl, from:'token'},
+                message: 'Welcome again '+req.user.firstName})
+    }else{
+        res.json({success: false,
+                message: 'Please sign in again.'})
+    }
+}
 
 } //end
 

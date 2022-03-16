@@ -13,6 +13,12 @@ import { connect } from 'react-redux'
 
 function App(props) {
 
+  useEffect(() => {
+    if(localStorage.getItem('token')!== null){
+      const token = localStorage.getItem('token')
+      props.verifyToken(token)
+    }
+  },[])
 
   return (
     <div>
@@ -27,8 +33,11 @@ function App(props) {
       <Route path="*" element={<Home/>}/>
       <Route path="Cities/Details/:id" element={<Details/>}/>
 
-      {!props.user && <Route path="/SignUp" element={<SignUpPage/>}/>}
-      {!props.user && <Route path="/SignIn" element={<SignInPage/>}/>}
+      {props.user ? <Route path="*" element={<Home/>}/> : 
+      <>
+      <Route path="/SignUp" element={<SignUpPage/>}/>
+      <Route path="/SignIn" element={<SignInPage/>}/>
+      </>}
       
       </Routes>
       <Footer/> 
@@ -41,6 +50,7 @@ function App(props) {
 
 const mapDispatchToProps = {
   signUpUser: userActions.signUpUser,
+  verifyToken: userActions.verifyToken
 }
 const mapStateToProps = (state) => {
   return {
