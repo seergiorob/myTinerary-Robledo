@@ -31,6 +31,16 @@ const theme = createTheme()
 
 function SignUp(props) {
 
+
+  const [country, setCountry] = useState('Country')
+
+  function Selected(event){
+    setCountry(event.target.value)
+  }
+
+
+  
+
   const handleSubmit = (event) => {
   
     event.preventDefault()
@@ -41,7 +51,7 @@ function SignUp(props) {
       email: event.target[4].value,
       password: event.target[6].value,
       profileurl: event.target[8].value,
-      country: event.target[10].value,
+      country: country,
       from: 'signup'
     }
     props.signUpUser(userData)
@@ -56,9 +66,38 @@ function SignUp(props) {
     <div className="containerSignUP">
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs" sx={{mb: 4}}>
+
+
+
+      <FormControl fullWidth>
+            <InputLabel id="demo-simple-select-label">Country</InputLabel>
+           
+            <Select
+            labelId="country"
+            id="country"
+            //value={}
     
-      <FacebookSignUp/>
-      <GoogleSignUp/>
+            label="Country"
+            onChange={Selected}
+              >
+            
+              {
+              countries.map((item) => (
+          
+            <MenuItem value={item.country} key={item.country}>{item.country}</MenuItem>
+            
+            ))}
+            </Select>
+          
+            </FormControl>
+
+
+        {country !== 'Country' ? 
+        
+        <> 
+    
+      <FacebookSignUp country={country} />
+      <GoogleSignUp country={country} />
 
         <CssBaseline />
         <Box
@@ -142,27 +181,7 @@ function SignUp(props) {
               
               <Grid item xs={12}>
               
-              <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">Country</InputLabel>
-           
-            <Select
-            labelId="country"
-            id="country"
-            //value={}
-    
-            label="Country"
-            //onChange={}
-            >
-            
-            {
-        countries.map((item) => (
-          
-            <MenuItem value={item.country} key={item.country}>{item.country}</MenuItem>
-            
-            ))}
-            </Select>
-          
-            </FormControl>
+             
             
               </Grid>
               
@@ -193,8 +212,16 @@ function SignUp(props) {
             </Grid>
           </Box>
         </Box>
+
+        
         <Snackbar/>
+        
+        </> : <h4>Please select your Country and then we will procede whit the registration form.</h4> }
+
       </Container>
+      
+      
+
     </ThemeProvider>
     </div>
   )

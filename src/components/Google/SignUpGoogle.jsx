@@ -8,19 +8,21 @@ function GoogleSignUp(props) {
 
   const responseGoogle = async (res) => {
 
-    console.log(res)
+    console.log("🚀 ~ file: SignUpGoogle.jsx ~ line 25 ~ responseGoogle ~ res", res)
 
     const userData = {
         firstName: res.profileObj.givenName,
         lastName: res.profileObj.familyName,
         email: res.profileObj.email,
         password: res.profileObj.googleId,
-        //profileurl: res.picture.data.url,
+        profileurl: res.profileObj.imageUrl,
+        country: props.country,
         from: "google"
 
     }
     await props.signUpUser(userData)
   }
+  
 
   return (
     <GoogleLogin

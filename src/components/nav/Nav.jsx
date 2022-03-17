@@ -21,14 +21,10 @@ const pages = ['Home', 'Cities'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = (props) => {
-console.log("🚀 ~ file: Nav.jsx ~ line 24 ~ ResponsiveAppBar ~ props", props)
-
-  
 
 function SignOutUser(){
   props.SignOutUser(props.user.email)
 }
-
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);

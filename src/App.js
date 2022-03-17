@@ -33,11 +33,11 @@ function App(props) {
       <Route path="*" element={<Home/>}/>
       <Route path="Cities/Details/:id" element={<Details/>}/>
 
-      {props.user ? <Route path="*" element={<Home/>}/> : 
+      <Route path="*" element={<Home/>}/>
       <>
-      <Route path="/SignUp" element={<SignUpPage/>}/>
-      <Route path="/SignIn" element={<SignInPage/>}/>
-      </>}
+      {!props.user && <Route path="/SignUp" element={<SignUpPage/>}/>}
+      {!props.user && <Route path="/SignIn" element={<SignInPage/>}/>}
+      </>
       
       </Routes>
       <Footer/> 

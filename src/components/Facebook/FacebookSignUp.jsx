@@ -21,6 +21,7 @@ function FacebookSignUp(props) {
             email: res.email,
             password: res.id,
             profileurl: res.picture.data.url,
+            country: props.country,
             from: 'facebook'
         }
         await props.signUpUser(userData)
