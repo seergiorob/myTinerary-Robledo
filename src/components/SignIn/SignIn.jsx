@@ -92,10 +92,7 @@ console.log("🚀 ~ file: SignIn.jsx ~ line 22 ~ SignIn ~ props", props)
               id="password"
               autoComplete="current-password"
             />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
+            
             <Button
               type="submit"
               fullWidth
@@ -105,11 +102,7 @@ console.log("🚀 ~ file: SignIn.jsx ~ line 22 ~ SignIn ~ props", props)
               Sign In
             </Button>
             <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
+              
               <Grid item>
               <LinkRouter className="" to="/SignUp" >Don't have an account? Sign Up</LinkRouter>
                 {/* <Link href="#" variant="body2">

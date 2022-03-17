@@ -5,7 +5,6 @@ import Footer from './components/footer/footer'
 import Home from './Pages/Home'
 import Cities from './Pages/Cities'
 import Details from './Pages/Details'
-import axios from 'axios'
 import SignUpPage from './Pages/SignUpPage';
 import SignInPage from './Pages/SignInPage';
 import userActions from './redux/actions/userActions'
@@ -30,15 +29,13 @@ function App(props) {
       <Route path="/" element={<Home/>}/>
       <Route path="/Home" element={<Home/>}/>
       <Route path="/Cities" element={<Cities/>}/>
-      <Route path="*" element={<Home/>}/>
+      
       <Route path="Cities/Details/:id" element={<Details/>}/>
 
-      <Route path="*" element={<Home/>}/>
-      <>
       {!props.user && <Route path="/SignUp" element={<SignUpPage/>}/>}
       {!props.user && <Route path="/SignIn" element={<SignInPage/>}/>}
-      </>
-      
+
+      <Route path="*" element={<Home/>}/>
       </Routes>
       <Footer/> 
       </BrowserRouter>
@@ -55,6 +52,7 @@ const mapDispatchToProps = {
 const mapStateToProps = (state) => {
   return {
     message: state.userReducer.message,
+    user: state.userReducer.user
   }
 }
 

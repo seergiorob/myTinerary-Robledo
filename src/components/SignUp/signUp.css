@@ -5,3 +5,17 @@
     background-color: white;
 }
 
+.h4SignUp{
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.containerSignUP{
+    margin-top: 30px;
+}
+
+.callToActionSignUp{
+    
+    margin-top: 20px;
+    margin: auto;
+}

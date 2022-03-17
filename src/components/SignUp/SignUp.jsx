@@ -92,8 +92,12 @@ function SignUp(props) {
             </FormControl>
 
 
-        {country !== 'Country' ? 
-        
+        {country === 'Country' ? 
+        <div>
+        <h4 className="h4SignUp">Please select your Country and then we will procede with the registration form.</h4>
+        <LinkRouter className="callToActionSignUp" to="/SignIn" >Already have an account? Sign In</LinkRouter>
+        </div>
+        :
         <> 
     
       <FacebookSignUp country={country} />
@@ -174,7 +178,7 @@ function SignUp(props) {
                   required
                   fullWidth
                   id="profileurl"
-                  label="Add your url with your best photo!"
+                  label="Add a url with your best photo!"
                   name="profileurl"
                 />
               </Grid>
@@ -185,14 +189,7 @@ function SignUp(props) {
             
               </Grid>
               
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={
-                    <Checkbox value="allowExtraEmails" color="primary" />
-                  }
-                  label="I want to receive information about promotions, new destinations and updates via email."
-                />
-              </Grid>
+              
             </Grid>
             <Button
               type="submit"
@@ -205,9 +202,7 @@ function SignUp(props) {
             <Grid container justifyContent="flex-end">
               <Grid item>
               <LinkRouter className="" to="/SignIn" >Already have an account? Sign In</LinkRouter>
-                {/* <Link href="#" variant="body2">
-                  Already have an account? Sign in
-                </Link> */}
+                
               </Grid>
             </Grid>
           </Box>
@@ -216,7 +211,7 @@ function SignUp(props) {
         
         <Snackbar/>
         
-        </> : <h4>Please select your Country and then we will procede whit the registration form.</h4> }
+        </>  }
 
       </Container>
       
