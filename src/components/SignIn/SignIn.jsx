@@ -3,9 +3,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -24,12 +21,12 @@ import GoogleSignIn from '../Google/SignInGoogle'
 const theme = createTheme();
 
 function SignIn(props) {
-console.log("🚀 ~ file: SignIn.jsx ~ line 22 ~ SignIn ~ props", props)
+
 
 
 
   const handleSubmit = (event) => {
-  console.log("🚀 ~ file: SignIn.jsx ~ line 27 ~ handleSubmit ~ event", event)
+  
     event.preventDefault();
     const loggedUser = {
       email: event.target[0].value,
@@ -105,9 +102,7 @@ console.log("🚀 ~ file: SignIn.jsx ~ line 22 ~ SignIn ~ props", props)
               
               <Grid item>
               <LinkRouter className="" to="/SignUp" >Don't have an account? Sign Up</LinkRouter>
-                {/* <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link> */}
+                
               </Grid>
             </Grid>
           </Box>
@@ -123,6 +118,8 @@ console.log("🚀 ~ file: SignIn.jsx ~ line 22 ~ SignIn ~ props", props)
 const mapStateToProps = (state) => {
   return {
       user: state.userReducer.user,
+      message: state.userReducer.message,
+      message2: state.userReducer.message2,
   }
 }
 

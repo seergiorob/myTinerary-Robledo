@@ -22,14 +22,21 @@ let mailOptions = {
     from: sender,
     to: email,
     subject: "Hi There! We're MyTinerary, please confirm your e-mail adress.",
-    html: `<div style="width: 70vw; margin: auto; display: flex; justify-content: center; align-items: center;">
-        
-    <img style="width: 100%;" src="https://cdn.pixabay.com/photo/2014/12/16/22/25/sunset-570881_960_720.jpg" alt="beach">
-    
-    <h1>Welcome to MyTinerary App</h1>
-    <h2 style="color: rgba(0, 0, 0, 0.79); font-size: 1rem;">Please click <a style="color: rgba(0, 0, 0, 0.557);" href=http://localhost:4000/api/verify/${uniqueString}>here</a> to confirm your email adress.</h2>
-
-</div>`
+    html: `<table>
+    <thead>
+      <tr>
+        <th colspan="2"><img src="https://cdn.pixabay.com/photo/2014/12/16/22/25/woman-570883_960_720.jpg" alt="beach" width="600" height="350"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td colspan="2"><h1 style="color: rgba(0, 0, 0, 0.79); font-size: 2rem; text-align: center;" >Welcome to MyTinerary App</h1></td>
+      </tr>
+      <tr>
+        <td colspan="2"><h2 style="color: rgba(0, 0, 0, 0.79); font-size: 1rem; text-align: center;">Please click <a style="color: rgba(0, 0, 0, 0.557);" href=http://localhost:4000/api/verify/${uniqueString}>here</a> to confirm your email adress.</h2></td>
+      </tr>
+    </tbody>
+    </table>`
 }
     await transporter.sendMail(mailOptions, function (error, response){
         if (error){console.log(error)}
@@ -56,9 +63,9 @@ const userControllers = {
     signUpUsers: async (req, res) => {
 
     let { firstName, lastName, email, password, profileurl, country, from } = req.body.userData;
-    console.log("🚀 ~ file: userControllers.js ~ line 9 ~ signUpUsers: ~ req.body", req.body)
     
- 
+    
+
     try{
 
         const usuarioExiste = await User.findOne({ email });
@@ -129,7 +136,7 @@ const userControllers = {
 signInUser: async (req, res) => {
     
     const { email, password, from } = req.body.loggedUser
-    console.log("🚀 ~ file: userControllers.js ~ line 77 ~ signInUser: ~ req.body", req.body)
+    
     
     try{
         const usuarioExiste = await User.findOne({ email })
@@ -229,7 +236,7 @@ verifyToken: (req, res) => {
     }
 }
 
-} //end
+} 
 
 module.exports = userControllers
 

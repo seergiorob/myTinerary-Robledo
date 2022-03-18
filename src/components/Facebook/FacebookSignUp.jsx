@@ -9,12 +9,12 @@ function FacebookSignUp(props) {
     const responseFacebook = async (res) => {
 
         const fullNameSplit = res.name.split(" ")
-        console.log(fullNameSplit)
+        
 
         let name = fullNameSplit[0]
         let lastname = fullNameSplit[1]
 
-        console.log(res)
+        
         const userData = {
             firstName: name,
             lastName: lastname,

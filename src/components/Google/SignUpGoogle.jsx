@@ -8,7 +8,7 @@ function GoogleSignUp(props) {
 
   const responseGoogle = async (res) => {
 
-    console.log("🚀 ~ file: SignUpGoogle.jsx ~ line 25 ~ responseGoogle ~ res", res)
+    
 
     const userData = {
         firstName: res.profileObj.givenName,

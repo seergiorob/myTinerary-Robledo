@@ -16,7 +16,7 @@ function DetailsC(props) {
 
     const {id} = useParams()
     const {todasCiudades: data, cargado: isLoaded, ciudad: city } = props;
-    console.log("🚀 ~ file: Details.jsx ~ line 19 ~ DetailsC ~ city", city)
+    
     
     
 

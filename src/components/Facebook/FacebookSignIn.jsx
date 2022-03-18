@@ -7,7 +7,7 @@ import './styleFacebook.css'
 function FacebookSignIn(props) {
 
   const responseFacebook = async (res) => {
-    console.log(res)
+    
     const loggedUser = {
       email: res.email,
       password: res.id,
