@@ -21,8 +21,15 @@ let sender = "sergiomindhub@gmail.com"
 let mailOptions = {
     from: sender,
     to: email,
-    subject: "Veryfy blabla",
-    html: `Click on <a href=http://localhost:4000/api/verify/${uniqueString}>aqui</a> para confirmar tu cuenta`
+    subject: "Hi There! We're MyTinerary, please confirm your e-mail adress.",
+    html: `<div style="width: 70vw; margin: auto; display: flex; justify-content: center; align-items: center;">
+        
+    <img style="width: 100%;" src="https://cdn.pixabay.com/photo/2014/12/16/22/25/sunset-570881_960_720.jpg" alt="beach">
+    
+    <h1>Welcome to MyTinerary App</h1>
+    <h2 style="color: rgba(0, 0, 0, 0.79); font-size: 1rem;">Please click <a style="color: rgba(0, 0, 0, 0.557);" href=http://localhost:4000/api/verify/${uniqueString}>here</a> to confirm your email adress.</h2>
+
+</div>`
 }
     await transporter.sendMail(mailOptions, function (error, response){
         if (error){console.log(error)}
