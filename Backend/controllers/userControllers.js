@@ -74,7 +74,7 @@ const userControllers = {
             if(usuarioExiste.from.indexOf(from) !== -1){
                 res.json({success: false, from: "signup", message: "Already registered, please Sign In"})
             } else {
-                const passwordHashed = bcrypt.hashSync(password, 10)
+                const passwordHashed = bcryptjs.hashSync(password, 10)
                 usuarioExiste.from.push(from)
                 usuarioExiste.password.push(passwordHashed)
                 if(from === "signup"){
@@ -91,7 +91,7 @@ const userControllers = {
 
                     res.json({success:true,
                             from:"signup",
-                            message: "✅ We add "+form+" to your Sign In methods" })
+                            message: "✅ We add "+from+" to your Sign In methods" })
                 }
             }
         } else { 
@@ -113,7 +113,7 @@ const userControllers = {
                 res.json({
                     success: true,
                     from: "signup",
-                    message: "✅ Congratulations, your new account has been created" +from
+                    message: "✅ Congratulations, your new account has been created from " +from
                 })
             } else {
                 await nuevoUsuario.save()
@@ -208,7 +208,7 @@ signInUser: async (req, res) => {
             res.json({
                 success: false,
                 from: from,
-                Message: "You did not verify your account, please check your inbox in order to complete the Sign Up"
+                message: "You did not verify your account, please check your inbox in order to complete the Sign Up"
             })
         }
         }
@@ -229,7 +229,8 @@ verifyToken: (req, res) => {
     if(!req.err){
         res.json({success: true,
                 response: {id:req.user.id, firstName:req.user.firstName, lastName:req.user.lastName, email:req.user.email, profileurl:req.user.profileurl, from:'token'},
-                message: 'Welcome again '+req.user.firstName})
+                message: 'Welcome again '+req.user.firstName
+            })
     }else{
         res.json({success: false,
                 message: 'Please sign in again.'})
