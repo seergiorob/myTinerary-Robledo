@@ -10,7 +10,7 @@ const validator = (req, res, next) => {
             'string.email': '❌ Wrong format email.','string.min': '❌ The email must contain more than 3 characters.'
         }),
 
-        password: joi.string().pattern(new RegExp('[a-zA-Z0-9]')).required().trim().min(8).max(30).messages({'string.min':'❌ Your password must contain at least 8 characters.', 'string.min':'❌ Your password can not contain more than 30 characters.', 'string.pattern':'❌ Your password must be alphanumeric and contains one number'}),
+        password: joi.string().pattern(new RegExp('[a-zA-Z0-9]')).required().trim().min(8).max(30).messages({'string.min':'❌ Your password must contain at least 8 characters.', 'string.max':'❌ Your password can not contain more than 30 characters.', 'string.pattern':'❌ Your password must be alphanumeric and contains one number'}),
 
         profileurl: joi.string().min(3).trim().messages({'string.profileurl': '❌ You should add a photo link to your profile.'}),
 

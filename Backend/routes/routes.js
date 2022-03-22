@@ -18,7 +18,9 @@ Router.route('/allcities/:id')
 .put(modificarCiudad)
 .get(obtenerUnaCiudad)
 
-const {obtenerItineraries, cargaItinerary, borrarItinerary, modificarItinerary,obtenerUnItinerary, obtenerItinerarioPorCiudad} = itinerariesController
+
+
+const {obtenerItineraries, cargaItinerary, borrarItinerary, modificarItinerary,obtenerUnItinerary, obtenerItinerarioPorCiudad, likesAndDislike} = itinerariesController
 
 Router.route('/allitineraries')
 .get(obtenerItineraries)
@@ -32,6 +34,10 @@ Router.route('/allitineraries/:id')
 Router.route('/allitineraries/city/:id')
 .get(obtenerItinerarioPorCiudad)
 
+Router.route('/likesAndDislike')
+.put( 
+// (passport.authenticate('jwt',{ session:false }), 
+likesAndDislike)
 
 const { signUpUsers, signInUser, signOutUser, verifyEmail, verifyToken} = userController;
 
@@ -49,5 +55,6 @@ Router.route('/verify/:uniqueString')
 
 Router.route('/auth/signInToken')
 .get(passport.authenticate('jwt',{ session:false }), verifyToken)
+
 
 module.exports = Router

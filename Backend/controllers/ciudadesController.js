@@ -65,6 +65,7 @@ const ciudadesController = {
             error : error
         })
     }
+    
 
 }
 module.exports = ciudadesController

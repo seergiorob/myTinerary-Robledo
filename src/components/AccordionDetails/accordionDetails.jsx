@@ -12,6 +12,7 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import {useParams} from 'react-router-dom'
 import {connect} from 'react-redux';
 import itineraryActions from '../../redux/actions/itineraryActions'
+import Likes from '../LikesComponent/Likes'
 
 
  function ControlledAccordions(props) {
@@ -26,6 +27,7 @@ import itineraryActions from '../../redux/actions/itineraryActions'
 
     const bill1 = ' 💵 '
 
+ 
    return (
     <div>
 
@@ -39,16 +41,27 @@ props.itinerariosPorCiudad.map((itinerary, index) => {
         
 
 
-      <Accordion expanded={expanded[index]} onChange={()=>{
+      <Accordion 
+      expanded={expanded[index]} 
+      onChange={()=>{
         const newState = [...expanded];
         newState[index] = true;
         setExpanded(newState);
-      } }>
+      } }
+      
+      >
         <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1bh-content"
-          id="panel1bh-header"
-          
+          // expandIcon={<ExpandMoreIcon />}
+          // aria-controls="panel1bh-content"
+          // id="panel1bh-header"
+        sx={{
+          pointerEvents: "auto"
+        }}
+        expandIcon={
+          <ExpandMoreIcon sx={{
+            pointerEvents: "auto"
+          }} />
+        }
         >
           
           <Container maxwidth="lg">
@@ -74,7 +87,10 @@ props.itinerariosPorCiudad.map((itinerary, index) => {
           <Typography sx={{ color: 'text.secondary' }}>{itinerary.itineraryDesc}</Typography>
           <Box className="bottomDetails"> 
           <Typography className="hashDetails" fontSize={12} my={1} sx={{ color: 'text.secondary' }}>{itinerary.hashtags}</Typography>
-          <Typography className="likeDetails" fontSize={12} my={1} sx={{ color: 'text.secondary' }}> <ThumbUpIcon className="iconLike"/>Roger and 1 more like this! </Typography>
+          <Typography className="likeDetails" fontSize={12} my={1} sx={{ color: 'text.secondary' }}> <ThumbUpIcon className="iconLike"/> <a href="/home"> Roger and 1 more like this! </a> </Typography>
+
+          <Likes id={[itinerary._id]} likes={itinerary.likes} />
+          {console.log(itinerary)}
           
           </Box>
           </Grid>
@@ -83,9 +99,29 @@ props.itinerariosPorCiudad.map((itinerary, index) => {
           
         </AccordionSummary>
         <AccordionDetails>
+
+        <Grid container spacing={2}>  
+            
+          <Grid item xs={12} lg={4}> 
           <Typography>
-          Sorry! We're under construction.
+          1
           </Typography>
+          </Grid>
+          
+          <Grid item xs={12} lg={4}> 
+          <Typography>
+          2
+          </Typography>
+          </Grid>
+
+          <Grid item xs={12} lg={4}> 
+          <Typography>
+          3
+          </Typography>
+          </Grid>
+
+          </Grid>
+
         </AccordionDetails>
       </Accordion>
       

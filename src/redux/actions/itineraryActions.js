@@ -21,6 +21,20 @@ const itineraryActions = {
       // console.log(res.data)
       dispatch({type: 'itineraryCiudad/fetch', payload: res.data})
     }
+  },
+  LikesDislikes: (likesObj) =>{
+    return async (dispatch, getState) =>{
+      const token = localStorage.getItem('token')
+      try{
+        const res = await axios.put('http://localhost:4000/api/likesAndDislike/', {...likesObj}, {
+          headers: {'Authorization': 'Bearer ' + token}})
+        return {success: true}
+      }
+      catch(error){
+        console.log(error)
+        return {success: false}
+      }
+    }
   }
 }
 export default itineraryActions;

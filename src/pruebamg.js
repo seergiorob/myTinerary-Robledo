@@ -53,6 +53,33 @@ const comments = [
         "duration": "5 hours",
         "hashtags": ["#fish ", "#snorkel ", "#coral ", "#borabora"],
     },
+    {
+        "name": "Margot Robertson",
+        "comment": " ",
+        "itinerary": "Caminito's Tour in Buenos Aires.",
+        "itineraryDesc": "This guided walking tour to visit one of the most picturesque neighborhoods of the city, with a walk through the colorful sites of Caminito and La Boca, and enjoy the most varied options that are made in each place you visit. Discover this mythical and famous neighborhood.",
+        "image": "9.jpg",
+        "imgItinerary": "bsasitinerario2.jpg",
+        "Policy": "Free cancellation: Cancel up to 48 hours in advance to receive a full refund.",
+        "price": 2,
+        "likes": 0,
+        "duration": "6 hours",
+        "hashtags": ["#caminito ", "#boca ", "#tango ", "#colourfull"],
+    },
+    {
+        "name": "Robert Jonhson",
+        "comment": " ",
+        "itinerary": "Museum Tour.",
+        "itineraryDesc": "Discover how Buenos Aires earned its nickname, Paris of the South, as your art historian guide takes you on a private 7-hour tour of the city's most important museums and art galleries. Art lovers will be in their element as they check out highlights like the Museo Arte Moderno, MALBA, the Museo de Bellas Artes, or the Amalia Lacroze de Fortabat Art Collection, then discover notable local artists at some of Recoleta's most exclusive art galleries.",
+        "image": "2.jpg",
+        "imgItinerary": "bsasitinerario1.jpg",
+        "Policy": "No refunds.",
+        "price": 5,
+        "likes": 0,
+        "duration": "7 hours",
+        "hashtags": ["#malba ", "#palermo ", "#recoleta ", "#art"],
+        "city" : 
+    },
     
 ]
 
