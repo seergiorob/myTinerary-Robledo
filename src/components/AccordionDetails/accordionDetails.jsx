@@ -87,10 +87,9 @@ props.itinerariosPorCiudad.map((itinerary, index) => {
           <Typography sx={{ color: 'text.secondary' }}>{itinerary.itineraryDesc}</Typography>
           <Box className="bottomDetails"> 
           <Typography className="hashDetails" fontSize={12} my={1} sx={{ color: 'text.secondary' }}>{itinerary.hashtags}</Typography>
-          <Typography className="likeDetails" fontSize={12} my={1} sx={{ color: 'text.secondary' }}> <ThumbUpIcon className="iconLike"/> <a href="/home"> Roger and 1 more like this! </a> </Typography>
-
+          
           <Likes id={[itinerary._id]} likes={itinerary.likes} />
-          {console.log(itinerary)}
+          {/* {console.log(itinerary)} */}
           
           </Box>
           </Grid>
@@ -108,17 +107,6 @@ props.itinerariosPorCiudad.map((itinerary, index) => {
           </Typography>
           </Grid>
           
-          <Grid item xs={12} lg={4}> 
-          <Typography>
-          2
-          </Typography>
-          </Grid>
-
-          <Grid item xs={12} lg={4}> 
-          <Typography>
-          3
-          </Typography>
-          </Grid>
 
           </Grid>
 

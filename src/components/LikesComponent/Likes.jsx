@@ -10,11 +10,11 @@ import {useParams} from 'react-router-dom'
 function Likes(props) {
 
     const {id} = useParams()
-    console.log(id)
+    // console.log(id)
     const [like, setLike] = useState(0);
 
 
-console.log(props)
+// console.log(props)
     // const LikesDislikes = async () => {
     //     const token = localStorage.getItem('token')
     //     const res = await axios.put(`http://localhost:4000/api/likesAndDislike/${props.id[0]}`,{},{

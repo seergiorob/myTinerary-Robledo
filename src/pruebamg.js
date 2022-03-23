@@ -78,9 +78,64 @@ const comments = [
         "likes": 0,
         "duration": "7 hours",
         "hashtags": ["#malba ", "#palermo ", "#recoleta ", "#art"],
-        "city" : 
+        "city" : "das"
     },
-    
+    {
+        "tittle": "Visit Pergamo Museum",
+        "img": "berlinpergamo1.jpg",
+        "itineraryId": "",
+        
+    },
+    {
+        "tittle": "Visit Neues Museum",
+        "img": "berlinneues1.jpg",
+        "itineraryId": "",
+        
+    },
+    {
+        "tittle": "Visit Altes Museum ",
+        "img": "berlinaltes1.jpg",
+        "itineraryId": "",
+        
+    },
+    //segundo
+    {
+        "tittle": "Visit History Museum",
+        "img": "berlinmuseohistoria2.jpg",
+        "itineraryId": "",
+        
+    },
+    {
+        "tittle": "Visit Berlin Catedral",
+        "img": "berlincatedral2.jpg",
+        "itineraryId": "",
+        
+    },
+    {
+        "tittle": "Visit Berlin Spy Museum",
+        "img": "berlinspymuseum2.jpg",
+        "itineraryId": "",
+        
+    },
+    //tercero
+    {
+        "tittle": "Visit History Museum",
+        "img": "berlinmuseohistoria2.jpg",
+        "itineraryId": "",
+        
+    },
+    {
+        "tittle": "Visit Berlin Catedral",
+        "img": "berlincatedral2.jpg",
+        "itineraryId": "",
+        
+    },
+    {
+        "tittle": "Visit Berlin Spy Museum",
+        "img": "berlinspymuseum2.jpg",
+        "itineraryId": "",
+        
+    },
 ]
 
 export default comments;

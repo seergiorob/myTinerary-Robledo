@@ -11,7 +11,7 @@ const activityControllers = {
     }
   },
 
-  activityOfItinerary: async (req, res) => {
+  activityForEachItinerary: async (req, res) => {
     try {
       let itineraryActivities = await Activity.find({
         itineraryId: req.params.itineraryId,
