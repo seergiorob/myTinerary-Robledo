@@ -67,4 +67,6 @@ Router.route("/activities")
 Router.route('/activities/:itineraryId')
 .get(activityForEachItinerary)
 
+
+
 module.exports = Router
