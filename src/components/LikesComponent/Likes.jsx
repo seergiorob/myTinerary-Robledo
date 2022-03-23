@@ -6,6 +6,8 @@ import itineraryActions from '../../redux/actions/itineraryActions'
 import axios from 'axios'
 import { connect } from 'react-redux'
 import {useParams} from 'react-router-dom'
+import './likes.css'
+import Swal from "sweetalert2";
 
 function Likes(props) {
 
@@ -48,10 +50,24 @@ function Likes(props) {
     return (
         <div>
             
-            <IconButton aria-label="like" onClick={likesAndDislikes} >
+            {/* <IconButton aria-label="like" onClick={likesAndDislikes} > */}
+            {props.user ? (
+            <IconButton aria-label="like" onClick={likesAndDislikes}>
+          <ThumbUpIcon className={`iconLike ${props.likes.some((like)=> like === props.user.id) ? "colorBlue" : "colorBlack"} `}/> <span>{props.likes.length}</span>
+          </IconButton> )
+            :
+          <IconButton aria-label="like" onClick={() =>
+              Swal.fire({
+                  icon: "error",
+                  title: `<span>You must sign in to like this itinerary.</span>`,
+                  background: "white",
+                  iconColor: "red",
+                  confirmButtonColor: "red",
+                })
+            }>
           <ThumbUpIcon className="iconLike"/> <span>{props.likes.length}</span>
-          </IconButton>
-
+          </IconButton> 
+            }
         </div>
     )
 }

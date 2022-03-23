@@ -13,7 +13,7 @@ import {useParams} from 'react-router-dom'
 import {connect} from 'react-redux';
 import itineraryActions from '../../redux/actions/itineraryActions'
 import Likes from '../LikesComponent/Likes'
-
+import activityActions from '../../redux/actions/activityActions'
 
  function ControlledAccordions(props) {
 
@@ -27,6 +27,17 @@ import Likes from '../LikesComponent/Likes'
 
     const bill1 = ' 💵 '
 
+    console.log(props.itinerariosPorCiudad)
+
+    // const itineraryId = []
+    // itineraryId.push(props.itinerariosPorCiudad[0]._id)
+    // arraytest.push(props.itinerariosPorCiudad[1]._id)
+
+    // console.log(itineraryId)
+
+    // useEffect(()=> {
+    //   props.activityForEachItinerary(itineraryId)
+    // },)
  
    return (
     <div>
