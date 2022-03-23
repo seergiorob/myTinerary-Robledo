@@ -29,17 +29,8 @@ import activityActions from '../../redux/actions/activityActions'
 
     console.log(props.itinerariosPorCiudad)
 
-    // const itineraryId = []
-    // itineraryId.push(props.itinerariosPorCiudad[0]._id)
-    // arraytest.push(props.itinerariosPorCiudad[1]._id)
 
-    // console.log(itineraryId)
-
-    // useEffect(()=> {
-    //   props.activityForEachItinerary(itineraryId)
-    // },)
- 
-   return (
+  return (
     <div>
 
 {props.itinerariosPorCiudad == null ? (<h4>We're Sorry! We can't find any City there..</h4>) : 
@@ -51,7 +42,7 @@ props.itinerariosPorCiudad.map((itinerary, index) => {
         
         
 
-
+          
       <Accordion 
       expanded={expanded[index]} 
       onChange={()=>{
@@ -61,19 +52,7 @@ props.itinerariosPorCiudad.map((itinerary, index) => {
       } }
       
       >
-        <AccordionSummary
-          // expandIcon={<ExpandMoreIcon />}
-          // aria-controls="panel1bh-content"
-          // id="panel1bh-header"
-        sx={{
-          pointerEvents: "auto"
-        }}
-        expandIcon={
-          <ExpandMoreIcon sx={{
-            pointerEvents: "auto"
-          }} />
-        }
-        >
+        <div>
           
           <Container maxwidth="lg">
             <Grid container spacing={2}>
@@ -106,8 +85,22 @@ props.itinerariosPorCiudad.map((itinerary, index) => {
           </Grid>
           </Grid>
           </Container>
-          
+          <AccordionSummary
+          // expandIcon={<ExpandMoreIcon />}
+          // aria-controls="panel1bh-content"
+          // id="panel1bh-header"
+        sx={{
+          pointerEvents: "none"
+        }}
+        expandIcon={
+          <ExpandMoreIcon sx={{
+            pointerEvents: "auto"
+          }} />
+        }
+        >
         </AccordionSummary>
+        
+        </div>
         <AccordionDetails>
 
         <Grid container spacing={2}>  
