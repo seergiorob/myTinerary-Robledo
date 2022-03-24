@@ -76,7 +76,7 @@ const itinerariesController = {
     obtenerItinerarioPorCiudad: async (req, res) => {
         const id = req.params.id
         try{
-            const itinerarios = await Itineraries.find({city:id})
+            const itinerarios = await Itineraries.find({city:id}).populate("comments.userID")
             res.json(
                 itinerarios
             )

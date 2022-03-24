@@ -13,7 +13,8 @@ import {useParams} from 'react-router-dom'
 import {connect} from 'react-redux';
 import itineraryActions from '../../redux/actions/itineraryActions'
 import Likes from '../LikesComponent/Likes'
-import activityActions from '../../redux/actions/activityActions'
+import Activities from '../ActivityComponent/Activities'
+import Comments from '../Comments/Comments'
 
  function ControlledAccordions(props) {
 
@@ -23,12 +24,14 @@ import activityActions from '../../redux/actions/activityActions'
 
     useEffect(()=> {
       props.fetchearItinerarioPorCiudad(id)
+      
     },[])
 
     const bill1 = ' 💵 '
 
     console.log(props.itinerariosPorCiudad)
 
+ 
 
   return (
     <div>
@@ -38,10 +41,6 @@ props.itinerariosPorCiudad.length === 0 ? (<h4 className="itineraryNotFound">We'
 props.itinerariosPorCiudad.map((itinerary, index) => {
             
           return(<div key={"accordeon"+index} className="wrapperAccordionDetails">
-          
-        
-        
-
           
       <Accordion 
       expanded={expanded[index]} 
@@ -103,16 +102,9 @@ props.itinerariosPorCiudad.map((itinerary, index) => {
         </div>
         <AccordionDetails>
 
-        <Grid container spacing={2}>  
-            
-          <Grid item xs={12} lg={4}> 
-          <Typography>
-          1
-          </Typography>
-          </Grid>
-          
+        <Activities id={itinerary._id} />
+        <Comments id={itinerary._id} comments={itinerary.comments} />
 
-          </Grid>
 
         </AccordionDetails>
       </Accordion>
@@ -123,8 +115,13 @@ props.itinerariosPorCiudad.map((itinerary, index) => {
       )}
 
 
-   </div>
+  </div>
   );
 }
 
-export default connect(state => state.itinerariesReducer, itineraryActions)(ControlledAccordions)
+const mapDispatchToProps = {
+  fetchearItinerarioPorCiudad: itineraryActions.fetchearItinerarioPorCiudad
+}
+
+
+export default connect(state => state.itinerariesReducer, mapDispatchToProps)(ControlledAccordions)

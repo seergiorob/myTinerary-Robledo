@@ -1,0 +1,12 @@
+.wrapperComments{
+    background-color: burlywood;
+    border: 1px solid blue;
+}
+
+.commentArea{
+    border: 1px solid red;
+}
+
+.h5Comments{
+    font-size: 0.7rem;
+}

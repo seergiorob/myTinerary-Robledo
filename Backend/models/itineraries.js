@@ -3,10 +3,12 @@ const mongoose = require('mongoose');
 const itinerariesSchema = new mongoose.Schema({
 
         name: {type:String, required:true},
-        comments: [{
-                comment:{type: String},
-                userID: {type:mongoose.Types.ObjectId, ref: "users"}
-        }],
+        comments: [
+                {
+                userID: {type:mongoose.Types.ObjectId, ref: "users"},
+                comment:{type: String}
+                }
+                ],
         itinerary: {type:String, required:true},
         itineraryDesc: {type:String, required:true},
         image: {type:String, required:true},
@@ -16,7 +18,6 @@ const itinerariesSchema = new mongoose.Schema({
         likes: [{type: mongoose.Types.ObjectId, ref:'users'}],
         duration: {type:String, required:true},
         hashtags: {type:Array, required:true},
-        // city: {type:String, required:true},
         city: {type:mongoose.Schema.Types.ObjectId, ref:'ciudades'},
 })
 
