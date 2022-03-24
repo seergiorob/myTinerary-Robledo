@@ -41,15 +41,20 @@ function Comment(props) {
             
             <div className="wrapperComments">
                     <div>
-                        <div className="">{props.comment.userID.firstName} says:</div>
+                        <div className="userComment">
+                            <img className="profileComment" src={props.comment.userID.profileurl} alt=""/>
+                            {props.comment.userID.firstName}: 
+                            
+                        
+                        </div>
 
                         <div className="commentArea">
                             
                             {editComment && props.comment.userID._id === props.user.id
                             ? (<> 
-                            <input ref={inputEdit} type="text" defaultValue={props.comment.comment}/>
+                            <input  ref={inputEdit} type="text" defaultValue={props.comment.comment}/>
                             <button onClick={()=> handleEditComment(props.comment._id)}>enviar edit</button>
-                             </>) : <p>{props.comment.comment}</p> 
+                             </>) : <p className="inputComment">{props.comment.comment}</p> 
                             }
 
                         </div>

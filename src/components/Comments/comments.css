@@ -3,9 +3,29 @@
 }
 
 .commentArea{
-    margin-left: 10px;
+    margin-left: 15px;
 }
 
 .h5Comments{
     font-size: 0.7rem;
+}
+
+.userComment{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+    
+}
+
+.profileComment{
+    width: 25px;
+    border-radius: 360px;
+    margin-right: 10px;
+}
+
+.inputComment{
+    border: 1px solid red;
 }
