@@ -1,50 +1,48 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import { useParams } from 'react-router-dom'
 import { connect } from 'react-redux'
 import itineraryActions from '../../redux/actions/itineraryActions'
 import commentActions from '../../redux/actions/commentActions'
 import './comments.css'
+import Comment from './Comment'
 
 function Comments(props) {
 
-    const [comment, setComment] = useState("")
-
+    const input = useRef()
     const {id} = useParams()
+
 
     const handleComment = async () => {
         console.log(props.user.id)
         if(props.user.id){
-            console.log('enelif')
             let commentObj = {
                 userID: props.user.id,
-                comment: comment
+                comment: input.current.value
             }
             const addCommentawait = await props.addComment(commentObj, props.id)
-            setComment("")
-            props.fetchearItinerarioPorCiudad(id)
+            input.current.value = ""
+            if(addCommentawait.success){
+                console.log("aca va la alerta")
+                props.fetchearItinerarioPorCiudad(id)
+            }
         }
-        
     }
 
-console.log(props)
+
 
     return (
         <div>
-            
-            <div className="wrapperComments">
-                {props.comments.length ? props.comments.map(comment => {
+            {props.comments.length ? props.comments.map(comment => {
                     return (
-                    <div>
-                    <h3>{comment.userID.firstName}</h3>
-                    <div className="commentArea">{comment.comment}</div>
-                </div>)
+                        <Comment key={comment._id} id={props.id} comment={comment} />
+                    )
                 }) : <h5 className="h5Comments">Sorry, we don't have any coments yet.</h5> }
-            </div>
 
             <div>
-                <input type="text" onChange={(e)=> setComment(e.target.value) } />
+                
+                <input ref={input} type="text"  /> 
                 <button onClick={()=> {
-                    if(comment !== ""){
+                    if(input.current.value !== ""){
                         handleComment()
                     }else{alert("no vacio")}
                 } }>Enviar</button>
@@ -64,6 +62,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
     addComment: commentActions.addComment,
+    deleteComment: commentActions.deleteComment,
+    editComment: commentActions.editComment,
     fetchearItinerarioPorCiudad: itineraryActions.fetchearItinerarioPorCiudad
   }
 

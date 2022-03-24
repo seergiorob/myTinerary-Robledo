@@ -27,8 +27,8 @@ function Activities(props) {
 
                 return (<Grid item xs={12} lg={4} key={activity._id}>
 
-                        <div class="wrapperActivity">
-                        <h5 class="h5Activity">{activity.title}</h5>
+                        <div className="wrapperActivity">
+                        <h5 className="h5Activity">{activity.title}</h5>
                         <Box
                         component="img"
                         sx={{
@@ -43,7 +43,7 @@ function Activities(props) {
                         />
                         
                         </div>
-                    {/* <img class="imgActivity" src={process.env.PUBLIC_URL + `/img/activities/${activity.img}`} alt={activity.title}/> */}
+                    {/* <img className="imgActivity" src={process.env.PUBLIC_URL + `/img/activities/${activity.img}`} alt={activity.title}/> */}
 
                 </Grid>)
             })}
