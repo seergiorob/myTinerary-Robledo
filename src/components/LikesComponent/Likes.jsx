@@ -8,6 +8,7 @@ import { connect } from 'react-redux'
 import {useParams} from 'react-router-dom'
 import './likes.css'
 import Swal from "sweetalert2";
+import {Link as LinkRouter} from 'react-router-dom'
 
 function Likes(props) {
 
@@ -58,11 +59,10 @@ function Likes(props) {
             :
           <IconButton aria-label="like" onClick={() =>
               Swal.fire({
-                  icon: "error",
-                  title: `<span>You must sign in to like this itinerary.</span>`,
+                  icon: "info",
+                  title: `<span>Please Sign In to leave a comment.</span>`,
                   background: "white",
-                  iconColor: "red",
-                  confirmButtonColor: "red",
+                  
                 })
                 
             }>

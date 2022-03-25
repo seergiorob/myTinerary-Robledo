@@ -8,6 +8,7 @@ import Comment from './Comment'
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import Swal from "sweetalert2";
+import {Link as LinkRouter} from 'react-router-dom'
 
 function Comments(props) {
 
@@ -59,8 +60,9 @@ function Comments(props) {
                     )
                 }) : <h5 className="h5Comments">Sorry, we don't have any coments yet.</h5> }
 
+            {props.user ?
             <div>
-            
+                
                 <input ref={input} type="text"  /> 
                 {/* <button onClick={()=> {
                     if(input.current.value !== ""){
@@ -77,6 +79,9 @@ function Comments(props) {
                 </Button>
 
             </div>
+            :
+            <h5 className="h5Comments">Please <LinkRouter className="linkComments" to="/SignIn">Sign In</LinkRouter> to leave a comment.</h5>
+            }
 
         </div>
     )

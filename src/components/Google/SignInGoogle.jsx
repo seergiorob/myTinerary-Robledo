@@ -7,7 +7,7 @@ import userActions from '../../redux/actions/userActions';
 function GoogleSignIn(props) {
 
   const responseGoogle = async (res) => {
-      console.log(res)
+      
      const loggedUser = {
       email: res.profileObj.email,
       password: res.profileObj.googleId,

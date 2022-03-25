@@ -8,7 +8,7 @@ import './activityCSS.css'
 
 function Activities(props) {
 
-    console.log(props)
+
 
     const [activity, setActivity ] = useState([])
 
