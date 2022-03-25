@@ -4,7 +4,11 @@ import { connect } from 'react-redux'
 import itineraryActions from '../../redux/actions/itineraryActions'
 import commentActions from '../../redux/actions/commentActions'
 import './comments.css'
-
+import DeleteIcon from '@mui/icons-material/Delete';
+import IconButton from '@mui/material/IconButton';
+import EditIcon from '@mui/icons-material/Edit';
+import CheckIcon from '@mui/icons-material/Check';
+import Swal from "sweetalert2";
 
 function Comment(props) {
 
@@ -12,6 +16,24 @@ function Comment(props) {
     const inputEdit = useRef()
     const {id} = useParams()
 
+    const alertsToasts = (icon, message) => {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'bottom-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+          
+          Toast.fire({
+            icon: `${icon}`,
+            title: `${message}`
+          })
+    }
 
     
     const handleDeleteComment = async (commentID) => {
@@ -19,7 +41,11 @@ function Comment(props) {
         if(props.user.id){
             
             const deleteCommentawait = await props.deleteComment(props.id, commentID)
-            props.fetchearItinerarioPorCiudad(id)
+            
+            if (deleteCommentawait.success){
+                alertsToasts('success', 'Message deleted')
+                props.fetchearItinerarioPorCiudad(id)
+            }
         }
     }
     const handleEditComment = async (commentID) => {
@@ -30,9 +56,12 @@ function Comment(props) {
             }
             const editCommentawait = await props.editComment(props.id, editObj)
             setEditComment(!editComment)
-            
+            if(editCommentawait.success){
+                alertsToasts('success', 'Message edited')
+            }
             props.fetchearItinerarioPorCiudad(id)
             inputEdit.current.value = ""
+            
         }
     }
 
@@ -53,8 +82,19 @@ function Comment(props) {
                             {editComment && props.comment.userID._id === props.user.id
                             ? (<> 
                             <input  ref={inputEdit} type="text" defaultValue={props.comment.comment}/>
-                            <button onClick={()=> handleEditComment(props.comment._id)}>enviar edit</button>
-                             </>) : <p className="inputComment">{props.comment.comment}</p> 
+                            
+                            
+                            
+                            {/* <button onClick={()=> handleEditComment(props.comment._id)}>enviar edit</button> */}
+                            
+                            {/* <Button onClick={()=> handleEditComment(props.comment._id)} variant="contained" endIcon={<SendIcon />}>
+                            Send
+                            </Button> */}
+
+                            <IconButton onClick={()=> handleEditComment(props.comment._id)}  aria-label="send">
+                            <CheckIcon />
+                            </IconButton>
+                            </>) : <p className="inputComment">{props.comment.comment}</p> 
                             }
 
                         </div>
@@ -62,8 +102,19 @@ function Comment(props) {
                         {props.user?.id === props.comment.userID._id && (
                             editComment == false && (
                             <> 
-                            <button onClick={()=>setEditComment(!editComment)}>edit</button>
-                            <button onClick={()=>handleDeleteComment(props.comment._id)}>delete</button>
+                            {/* <button onClick={()=>setEditComment(!editComment)}>edit</button> */}
+                            <IconButton onClick={()=>setEditComment(!editComment)}  aria-label="delete">
+                            <EditIcon />
+                            </IconButton>
+
+                            
+                            
+                            {/* <button onClick={()=>handleDeleteComment(props.comment._id)}>delete</button> */}
+
+                            <IconButton onClick={()=>handleDeleteComment(props.comment._id)}  aria-label="delete">
+                            <DeleteIcon />
+                            </IconButton>
+
                             </>
                             )
                         )}

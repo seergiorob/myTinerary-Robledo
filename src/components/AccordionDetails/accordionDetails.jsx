@@ -29,7 +29,6 @@ import Comments from '../Comments/Comments'
 
     const bill1 = ' 💵 '
 
-    console.log(props.itinerariosPorCiudad)
 
  
 

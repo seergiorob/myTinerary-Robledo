@@ -38,9 +38,6 @@ function SignUp(props) {
     setCountry(event.target.value)
   }
 
-
-  
-
   const handleSubmit = (event) => {
   
     event.preventDefault()

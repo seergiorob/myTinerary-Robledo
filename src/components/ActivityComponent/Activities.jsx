@@ -17,7 +17,6 @@ function Activities(props) {
         .then(res => setActivity(res.response))
     },[])
 
-    console.log(activity)
 
     return (
         
@@ -34,8 +33,8 @@ function Activities(props) {
                         sx={{
                         height: 233,
                         width: 350,
-                        maxHeight: { xs: 250, md: 250 },
-                        maxWidth: { xs: 450, md: 400 },
+                        maxHeight: { xs: 180, md: 250 },
+                        maxWidth: { xs: 280, md: 300 },
                         
                         }}
                         alt={activity.title}

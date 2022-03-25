@@ -64,6 +64,7 @@ function Likes(props) {
                   iconColor: "red",
                   confirmButtonColor: "red",
                 })
+                
             }>
           <ThumbUpIcon className="iconLike"/> <span>{props.likes.length}</span>
           </IconButton> 

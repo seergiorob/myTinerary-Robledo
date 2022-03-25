@@ -26,6 +26,7 @@
     margin-right: 10px;
 }
 
-.inputComment{
-    border: 1px solid red;
+.commentsGeneralWrapper{
+    width: 60vw;
+    margin: auto;
 }

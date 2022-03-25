@@ -5,15 +5,36 @@ import itineraryActions from '../../redux/actions/itineraryActions'
 import commentActions from '../../redux/actions/commentActions'
 import './comments.css'
 import Comment from './Comment'
+import Button from '@mui/material/Button';
+import SendIcon from '@mui/icons-material/Send';
+import Swal from "sweetalert2";
 
 function Comments(props) {
 
     const input = useRef()
     const {id} = useParams()
 
+    const alertsToasts = (icon, message) => {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'bottom-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+          
+          Toast.fire({
+            icon: `${icon}`,
+            title: `${message}`
+          })
+    }
 
     const handleComment = async () => {
-        console.log(props.user.id)
+        
         if(props.user.id){
             let commentObj = {
                 userID: props.user.id,
@@ -22,7 +43,7 @@ function Comments(props) {
             const addCommentawait = await props.addComment(commentObj, props.id)
             input.current.value = ""
             if(addCommentawait.success){
-                console.log("aca va la alerta")
+                alertsToasts('success', 'Thanks for your message')
                 props.fetchearItinerarioPorCiudad(id)
             }
         }
@@ -31,7 +52,7 @@ function Comments(props) {
 
 
     return (
-        <div>
+        <div className="commentsGeneralWrapper">
             {props.comments.length ? props.comments.map(comment => {
                     return (
                         <Comment key={comment._id} id={props.id} comment={comment} />
@@ -39,13 +60,22 @@ function Comments(props) {
                 }) : <h5 className="h5Comments">Sorry, we don't have any coments yet.</h5> }
 
             <div>
-                
+            
                 <input ref={input} type="text"  /> 
-                <button onClick={()=> {
+                {/* <button onClick={()=> {
                     if(input.current.value !== ""){
                         handleComment()
                     }else{alert("no vacio")}
-                } }>Enviar</button>
+                } }>Enviar</button> */}
+
+                <Button size="small" onClick={()=> {
+                    if(input.current.value !== ""){
+                        handleComment()
+                    }else{alert("no vacio")}
+                } }  variant="outlined" endIcon={<SendIcon />}>
+                Send
+                </Button>
+
             </div>
 
         </div>
