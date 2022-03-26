@@ -111,7 +111,29 @@ function Comment(props) {
                             
                             {/* <button onClick={()=>handleDeleteComment(props.comment._id)}>delete</button> */}
 
-                            <IconButton onClick={()=>handleDeleteComment(props.comment._id)}  aria-label="delete">
+                            <IconButton onClick={() => {
+                      Swal.fire({
+                        title: `<span style="color:black"> Do you want to delete this comment?<span>`,
+                        html: `<span style="color:black"> You won't be able to revert this<span>`,
+                        icon: "warning",
+                        color: "black",
+                        showCancelButton: true,
+                        confirmButtonText: `<span style="color:black"> Yes, delete it! </span>`,
+                      }).then((result) => {
+                        if (result.isConfirmed) {
+                         
+                          handleDeleteComment(props.comment._id);
+                        } else if (
+                          result.dismiss === Swal.DismissReason.cancel
+                        ) {
+                          Swal.fire({
+                            icon: "error",
+                            title: `<span style="color:black">Cancelled!<span>`,
+                            html: `<span style="color:black">Your comment is safe.<span>`,
+                          });
+                        }
+                      });
+                    }}  aria-label="delete">
                             <DeleteIcon />
                             </IconButton>
 

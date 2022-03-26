@@ -11,7 +11,7 @@ function Activities(props) {
 
 
     const [activity, setActivity ] = useState([])
-    console.log("🚀 ~ file: Activities.jsx ~ line 14 ~ Activities ~ activity", activity)
+
 
     
     useEffect(()=>{
