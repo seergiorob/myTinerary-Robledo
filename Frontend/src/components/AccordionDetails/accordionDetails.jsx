@@ -30,17 +30,18 @@ import ciudadesActions from '../../redux/actions/ciudadesActions'
 
     const bill1 = ' 💵 '
 
-
+    const {itinerary, index} = props
 
 
   return (
     <div>
 
-{props.itinerariosPorCiudad == null ? (<h4>We're Sorry! We can't find any City there..</h4>) : 
+{/* {props.itinerariosPorCiudad == null ? (<h4>We're Sorry! We can't find any City there..</h4>) : 
 props.itinerariosPorCiudad.length === 0 ? (<h4 className="itineraryNotFound">We're Sorry! We can't find any Itineraries for your City.</h4>) : 
-props.itinerariosPorCiudad.map((itinerary, index) => {
-            
-          return(<div key={"accordeon"+index} className="wrapperAccordionDetails">
+props.itinerariosPorCiudad.map((itinerary, index) => { */}
+          
+          {/* return( */}
+            <div key={"accordeon"+index} className="wrapperAccordionDetails">
           
       <Accordion 
       expanded={expanded[index]} 
@@ -111,8 +112,8 @@ props.itinerariosPorCiudad.map((itinerary, index) => {
       
       
       </div>
-          )}
-      )}
+          {/* )} */}
+      {/* )} */}
 
 
   </div>

@@ -57,10 +57,11 @@ function Comment(props) {
             const editCommentawait = await props.editComment(props.id, editObj)
             setEditComment(!editComment)
             if(editCommentawait.success){
+              props.fetchearItinerarioPorCiudad(id)
               inputEdit.current.value = ""
                 alertsToasts('success', 'Message edited')
             }
-            props.fetchearItinerarioPorCiudad(id)
+            
             
             
         }
