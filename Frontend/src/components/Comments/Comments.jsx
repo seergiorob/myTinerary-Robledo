@@ -64,16 +64,12 @@ function Comments(props) {
             <div>
                 
                 <input ref={input} type="text"  /> 
-                {/* <button onClick={()=> {
-                    if(input.current.value !== ""){
-                        handleComment()
-                    }else{alert("no vacio")}
-                } }>Enviar</button> */}
+                
 
                 <Button size="small" onClick={()=> {
                     if(input.current.value !== ""){
                         handleComment()
-                    }else{alert("no vacio")}
+                    }else{alertsToasts('info', 'You cant send an empty comment')}
                 } }  variant="outlined" endIcon={<SendIcon />}>
                 Send
                 </Button>
