@@ -103,7 +103,7 @@ function Comment(props) {
                             editComment == false && (
                             <> 
                             {/* <button onClick={()=>setEditComment(!editComment)}>edit</button> */}
-                            <IconButton onClick={()=>setEditComment(!editComment)}  aria-label="delete">
+                            <IconButton onClick={()=>setEditComment(!editComment)}  aria-label="edit">
                             <EditIcon />
                             </IconButton>
 

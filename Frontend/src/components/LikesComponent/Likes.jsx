@@ -13,20 +13,9 @@ import {Link as LinkRouter} from 'react-router-dom'
 function Likes(props) {
 
     const {id} = useParams()
-    // console.log(id)
     const [like, setLike] = useState(0);
 
-
-// console.log(props)
-    // const LikesDislikes = async () => {
-    //     const token = localStorage.getItem('token')
-    //     const res = await axios.put(`http://localhost:4000/api/likesAndDislike/${props.id[0]}`,{},{
-    //         headers: {
-    //             'Authorization': 'Bearer ' + token
-    //         }
-    //     })
-    //     .then(res => console.log(res))
-    // } 
+ 
 
     const likesAndDislikes = async()=>{
         let likesObj
