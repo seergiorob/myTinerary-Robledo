@@ -15,6 +15,7 @@ import itineraryActions from '../../redux/actions/itineraryActions'
 import Likes from '../LikesComponent/Likes'
 import Activities from '../ActivityComponent/Activities'
 import Comments from '../Comments/Comments'
+import ciudadesActions from '../../redux/actions/ciudadesActions'
 
  function ControlledAccordions(props) {
 
@@ -24,13 +25,13 @@ import Comments from '../Comments/Comments'
 
     useEffect(()=> {
       props.fetchearItinerarioPorCiudad(id)
-      
+      props.fetchearCiudades()
     },[])
 
     const bill1 = ' 💵 '
 
 
- 
+
 
   return (
     <div>
@@ -119,7 +120,8 @@ props.itinerariosPorCiudad.map((itinerary, index) => {
 }
 
 const mapDispatchToProps = {
-  fetchearItinerarioPorCiudad: itineraryActions.fetchearItinerarioPorCiudad
+  fetchearItinerarioPorCiudad: itineraryActions.fetchearItinerarioPorCiudad,
+  fetchearCiudades: ciudadesActions.fetchearCiudades
 }
 
 

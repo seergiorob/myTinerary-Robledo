@@ -24,6 +24,7 @@ function DetailsC(props) {
     
     useEffect(()=> { 
         fetchearCiudad(id)
+        fetchearCiudades()
       },[])
 
     return (
